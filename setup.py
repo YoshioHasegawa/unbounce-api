@@ -1,15 +1,15 @@
 # unbounceapi/setup.py
 from distutils.core import setup
 setup(
-  name = 'unbounceapi',
-  packages = ['unbounceapi'],
+  name = 'unbounce-python-api',
+  packages = ['unbounce-python-api'],
   version = '1.1.1',
   license='MIT',
   description = 'An Unbounce API wrapper written in python.',
   author = 'Yoshio Hasegawa',
   author_email = 'yoshiohasegawa206@gmail.com',
-  url = 'https://github.com/YoshioHasegawa/unbounce-api',
-  download_url = 'https://github.com/YoshioHasegawa/unbounce-api/archive/v1.1.1.tar.gz',
+  url = 'https://github.com/YoshioHasegawa/unbounce-python-api',
+  download_url = 'https://github.com/YoshioHasegawa/unbounce-python-api/archive/v1.1.1.tar.gz',
   keywords = ['Unbounce', 'API', 'Wrapper'],
   install_requires=[
           'requests',
