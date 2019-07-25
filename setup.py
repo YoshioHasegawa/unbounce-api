@@ -2,7 +2,7 @@
 from distutils.core import setup
 setup(
   name = 'unbounce-python-api',
-  packages = ['unbounce-python-api'],
+  packages = ['unbounceapi'],
   version = '1.1.1',
   license='MIT',
   description = 'An Unbounce API wrapper written in python.',
