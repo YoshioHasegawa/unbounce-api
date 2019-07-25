@@ -28,41 +28,41 @@ class Lead(object):
     LEAD_URL_BASE = 'https://api.unbounce.com/leads'
 
     #**************************************************************************************
-	# Constructor: __init__(self, library)
-	#
-	# Description
-	# -----------
-	# This constructor takes the client class as a parameter in order to gain access to
-	# it's variables and methods.
-	#
-	# ------------------------------- Arguments ------------------------------------------
-	#        Type               Name                         Description
-	# --------------------  ------------  ------------------------------------------------
-	# Class                 client        The parent class that houses all of the primary
+    # Constructor: __init__(self, library)
+    #
+    # Description
+    # -----------
+    # This constructor takes the client class as a parameter in order to gain access to
+    # it's variables and methods.
+    #
+    # ------------------------------- Arguments ------------------------------------------
+    #        Type               Name                         Description
+    # --------------------  ------------  ------------------------------------------------
+    # Class                 client        The parent class that houses all of the primary
     #                                     modules (variables and methods) to be accessed
     #                                     by child classes.
-	#*************************************************************************************
+    #*************************************************************************************
     def __init__(self, client):
         # Instantiating client (Parent) class in order to gain access to it's methods/variables.
         self.client = client
 
     #**************************************************************************************
-	# Method: get_user(self, string)
-	#
-	# Description
-	# -----------
-	# This method allows users to retrieve a single lead.
-	#
-	# RETurn
-	#  Type                            Description
-	# ------  ----------------------------------------------------------------------------
-	# JSON    Returns the client (Parent) class get() method's response.
-	#
-	# ------------------------------- Arguments ------------------------------------------
-	#        Type               Name                         Description
-	# --------------------  ------------  ------------------------------------------------
-	# string                lead_id       The ID for a given lead.
-	#*************************************************************************************
+    # Method: get_user(self, string)
+    #
+    # Description
+    # -----------
+    # This method allows users to retrieve a single lead.
+    #
+    # RETurn
+    #  Type                            Description
+    # ------  ----------------------------------------------------------------------------
+    # JSON    Returns the client (Parent) class get() method's response.
+    #
+    # ------------------------------- Arguments ------------------------------------------
+    #        Type               Name                         Description
+    # --------------------  ------------  ------------------------------------------------
+    # string                lead_id       The ID for a given lead.
+    #*************************************************************************************
     def get_lead(self, lead_id):
         url = self.LEAD_URL_BASE + '/{0}'.format(lead_id)
         # Return the result of the client (Parent) class get() method, pass an appropriate URL.

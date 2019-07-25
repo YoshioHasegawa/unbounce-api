@@ -30,46 +30,46 @@ class Account(object):
     ACCOUNT_URL_BASE = 'https://api.unbounce.com/accounts'
 
     #**************************************************************************************
-	# Constructor: __init__(self, library)
-	#
-	# Description
-	# -----------
-	# This constructor takes the client class as a parameter in order to gain access to
-	# it's variables and methods.
-	#
-	# ------------------------------- Arguments ------------------------------------------
-	#        Type               Name                         Description
-	# --------------------  ------------  ------------------------------------------------
-	# Class                 client        The parent class that houses all of the primary
+    # Constructor: __init__(self, library)
+    #
+    # Description
+    # -----------
+    # This constructor takes the client class as a parameter in order to gain access to
+    # it's variables and methods.
+    #
+    # ------------------------------- Arguments ------------------------------------------
+    #        Type               Name                         Description
+    # --------------------  ------------  ------------------------------------------------
+    # Class                 client        The parent class that houses all of the primary
     #                                     modules (variables and methods) to be accessed
     #                                     by child classes.
-	#*************************************************************************************
+    #*************************************************************************************
     def __init__(self, client):
         # Instantiating client (Parent) class in order to gain access to it's methods/variables.
         self.client = client
 
     #**************************************************************************************
-	# Method: get_accounts(self, string, **kwargs)
-	#
-	# Description
-	# -----------
-	# This method allows users to retrieve the accounts collection. Users may
+    # Method: get_accounts(self, string, **kwargs)
+    #
+    # Description
+    # -----------
+    # This method allows users to retrieve the accounts collection. Users may
     # explicitly specify account_id in order to retrieve details of a single
     # account.
-	#
-	# RETurn
-	#  Type                            Description
-	# ------  ----------------------------------------------------------------------------
-	# JSON    Returns the client (Parent) class get() method's response.
-	#
-	# ------------------------------- Arguments ------------------------------------------
-	#        Type               Name                         Description
-	# --------------------  ------------  ------------------------------------------------
-	# string                account_id    The ID for a given Unbounce account.
+    #
+    # RETurn
+    #  Type                            Description
+    # ------  ----------------------------------------------------------------------------
+    # JSON    Returns the client (Parent) class get() method's response.
+    #
+    # ------------------------------- Arguments ------------------------------------------
+    #        Type               Name                         Description
+    # --------------------  ------------  ------------------------------------------------
+    # string                account_id    The ID for a given Unbounce account.
     #                                     Default: None
     # **kwargs (string)     sort_order    Sort by creation date ('asc' or 'desc').
     #                                     Default: 'asc'
-	#*************************************************************************************
+    #*************************************************************************************
     def get_accounts(self, account_id=None, **kwargs):
         # Initializing a dictionary for potential URL parameters.
         params = {}
@@ -85,21 +85,21 @@ class Account(object):
             return self.client.get(url)
 
     #*************************************************************************************
-	# Method: get_sub_accounts(self, string, **kwargs)
-	#
-	# Description
-	# -----------
-	# This method allows users to retrieve all sub-accounts for a given account.
-	#
-	# RETurn
-	#  Type                            Description
-	# ------  ----------------------------------------------------------------------------
-	# JSON    Returns the client (Parent) class get() method's response.
-	#
-	# ------------------------------- Arguments ------------------------------------------
-	#        Type               Name                         Description
-	# --------------------  ------------  ------------------------------------------------
-	# string                account_id    The ID for a given Unbounce account.
+    # Method: get_sub_accounts(self, string, **kwargs)
+    #
+    # Description
+    # -----------
+    # This method allows users to retrieve all sub-accounts for a given account.
+    #
+    # RETurn
+    #  Type                            Description
+    # ------  ----------------------------------------------------------------------------
+    # JSON    Returns the client (Parent) class get() method's response.
+    #
+    # ------------------------------- Arguments ------------------------------------------
+    #        Type               Name                         Description
+    # --------------------  ------------  ------------------------------------------------
+    # string                account_id    The ID for a given Unbounce account.
     # **kwargs (string)     sort_order    Sort by creation date ('asc' or 'desc').
     #                                     Default: 'asc'
     # **kwargs (boolean)    count         When true, don't return the response's collection
@@ -112,7 +112,7 @@ class Account(object):
     # **kwargs (integer)    limit         Only return limit number of results (ex: 100).
     #                                     Default: 50
     #                                     Maximum: 1000
-	#*************************************************************************************
+    #*************************************************************************************
     def get_sub_accounts(self, account_id, **kwargs):
         # Initializing a dictionary for potential URL parameters.
         params = {}
@@ -123,21 +123,21 @@ class Account(object):
         return self.client.get(url, params=params)
 
     #*************************************************************************************
-	# Method: get_account_pages(self, string, **kwargs)
-	#
-	# Description
-	# -----------
-	# This method allows users to retrieve a list of all pages for the specified account.
-	#
-	# RETurn
-	#  Type                            Description
-	# ------  ----------------------------------------------------------------------------
-	# JSON    Returns the client (Parent) class get() method's response.
-	#
-	# ------------------------------- Arguments ------------------------------------------
-	#        Type               Name                         Description
-	# --------------------  ------------  ------------------------------------------------
-	# string                account_id    The ID for a given Unbounce account.
+    # Method: get_account_pages(self, string, **kwargs)
+    #
+    # Description
+    # -----------
+    # This method allows users to retrieve a list of all pages for the specified account.
+    #
+    # RETurn
+    #  Type                            Description
+    # ------  ----------------------------------------------------------------------------
+    # JSON    Returns the client (Parent) class get() method's response.
+    #
+    # ------------------------------- Arguments ------------------------------------------
+    #        Type               Name                         Description
+    # --------------------  ------------  ------------------------------------------------
+    # string                account_id    The ID for a given Unbounce account.
     # **kwargs (string)     sort_order    Sort by creation date ('asc' or 'desc').
     #                                     Default: 'asc'
     # **kwargs (boolean)    count         When true, don't return the response's collection
@@ -150,7 +150,7 @@ class Account(object):
     # **kwargs (integer)    limit         Only return limit number of results (ex: 100).
     #                                     Default: 50
     #                                     Maximum: 1000
-	#*************************************************************************************
+    #*************************************************************************************
     def get_account_pages(self, account_id, **kwargs):
         # Initializing a dictionary for potential URL parameters.
         params = {}

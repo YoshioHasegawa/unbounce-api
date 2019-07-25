@@ -29,63 +29,63 @@ class Domain(object):
     DOMAIN_URL_BASE = 'https://api.unbounce.com/domains'
 
     #**************************************************************************************
-	# Constructor: __init__(self, library)
-	#
-	# Description
-	# -----------
-	# This constructor takes the client class as a parameter in order to gain access to
-	# it's variables and methods.
-	#
-	# ------------------------------- Arguments ------------------------------------------
-	#        Type               Name                         Description
-	# --------------------  ------------  ------------------------------------------------
-	# Class                 client        The parent class that houses all of the primary
+    # Constructor: __init__(self, library)
+    #
+    # Description
+    # -----------
+    # This constructor takes the client class as a parameter in order to gain access to
+    # it's variables and methods.
+    #
+    # ------------------------------- Arguments ------------------------------------------
+    #        Type               Name                         Description
+    # --------------------  ------------  ------------------------------------------------
+    # Class                 client        The parent class that houses all of the primary
     #                                     modules (variables and methods) to be accessed
     #                                     by child classes.
-	#*************************************************************************************
+    #*************************************************************************************
     def __init__(self, client):
         # Instantiating client (Parent) class in order to gain access to it's methods/variables.
         self.client = client
 
     #**************************************************************************************
-	# Method: get_domain(self, string)
-	#
-	# Description
-	# -----------
-	# This method allows users to retrieve a custom domain that has been registered
+    # Method: get_domain(self, string)
+    #
+    # Description
+    # -----------
+    # This method allows users to retrieve a custom domain that has been registered
     # with Unbounce.
-	#
-	# RETurn
-	#  Type                            Description
-	# ------  ----------------------------------------------------------------------------
-	# JSON    Returns the client (Parent) class get() method's response.
-	#
-	# ------------------------------- Arguments ------------------------------------------
-	#        Type               Name                         Description
-	# --------------------  ------------  ------------------------------------------------
-	# string                domain_id     The ID for a given domain.
-	#*************************************************************************************
+    #
+    # RETurn
+    #  Type                            Description
+    # ------  ----------------------------------------------------------------------------
+    # JSON    Returns the client (Parent) class get() method's response.
+    #
+    # ------------------------------- Arguments ------------------------------------------
+    #        Type               Name                         Description
+    # --------------------  ------------  ------------------------------------------------
+    # string                domain_id     The ID for a given domain.
+    #*************************************************************************************
     def get_domain(self, domain_id):
         url = self.DOMAIN_URL_BASE + '/{0}'.format(domain_id)
         # Return the result of the client (Parent) class get() method, pass an appropriate URL.
         return self.client.get(url)
 
     #*************************************************************************************
-	# Method: get_domain_pages(self, string, **kwargs)
-	#
-	# Description
-	# -----------
-	# This method allows users to retrieve a list of all pages based on the domain.
-	#
-	# RETurn
-	#  Type                            Description
-	# ------  ----------------------------------------------------------------------------
-	# JSON    Returns the client (Parent) class get() method's response.
-	#
-	# ------------------------------- Arguments ------------------------------------------
-	#        Type               Name                         Description
-	# ------------------  --------------  ------------------------------------------------
-	# string              domain_id       The ID for a given domain.
+    # Method: get_domain_pages(self, string, **kwargs)
+    #
+    # Description
+    # -----------
+    # This method allows users to retrieve a list of all pages based on the domain.
+    #
+    # RETurn
+    #  Type                            Description
+    # ------  ----------------------------------------------------------------------------
+    # JSON    Returns the client (Parent) class get() method's response.
+    #
+    # ------------------------------- Arguments ------------------------------------------
+    #        Type               Name                         Description
+    # ------------------  --------------  ------------------------------------------------
+    # string              domain_id       The ID for a given domain.
     # **kwargs (string)   sort_order      Sort by creation date ('asc' or 'desc').
     #                                     Default: 'asc'
     # **kwargs (boolean)  count           When true, don't return the response's collection
@@ -98,7 +98,7 @@ class Domain(object):
     # **kwargs (integer)  limit           Only return limit number of results (ex: 100).
     #                                     Default: 50
     #                                     Maximum: 1000
-	#*************************************************************************************
+    #*************************************************************************************
     def get_domain_pages(self, domain_id, **kwargs):
         # Initializing a dictionary for potential URL parameters.
         params = {}

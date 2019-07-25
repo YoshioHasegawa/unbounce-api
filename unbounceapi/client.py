@@ -62,18 +62,18 @@ class Unbounce(object):
     CONTENT_TYPE = 'application/json'
 
     #**************************************************************************************
-	# Constructor: __init__(self, library)
-	#
-	# Description
-	# -----------
-	# This constructor takes an API KEY and instantiates all sub-classes representing all
+    # Constructor: __init__(self, library)
+    #
+    # Description
+    # -----------
+    # This constructor takes an API KEY and instantiates all sub-classes representing all
     # approppriate Unbounce objects.
-	#
-	# ------------------------------- Arguments ------------------------------------------
-	#        Type               Name                         Description
-	# --------------------  ------------  ------------------------------------------------
-	# string                api_key       Unbounce API key.
-	#*************************************************************************************
+    #
+    # ------------------------------- Arguments ------------------------------------------
+    #        Type               Name                         Description
+    # --------------------  ------------  ------------------------------------------------
+    # string                api_key       Unbounce API key.
+    #*************************************************************************************
     def __init__(self, api_key):
         self._api_key = api_key
         self.accounts = Account(self)
@@ -85,119 +85,116 @@ class Unbounce(object):
         self.users = User(self)
 
     #*************************************************************************************
-	# Method: post(self, string)
-	#
-	# Description
-	# -----------
-	# This method is accessed by all child classes and, enables the ability to submit data
+    # Method: post(self, string)
+    #
+    # Description
+    # -----------
+    # This method is accessed by all child classes and, enables the ability to submit data
     # to be processed to the Unbounce server.
-	#
-	# RETurn
-	#  Type                            Description
-	# ------  ----------------------------------------------------------------------------
-	# JSON    Returns the response from the private method __parsed_response().
-	#
-	# ------------------------------- Arguments ------------------------------------------
-	#        Type               Name                         Description
-	# --------------------  ------------  ------------------------------------------------
-	# string                url           the Unbounce URL to communicate with.
-	#*************************************************************************************
+    #
+    # RETurn
+    #  Type                            Description
+    # ------  ----------------------------------------------------------------------------
+    # JSON    Returns the response from the private method __parsed_response().
+    #
+    # ------------------------------- Arguments ------------------------------------------
+    #        Type               Name                         Description
+    # --------------------  ------------  ------------------------------------------------
+    # string                url           the Unbounce URL to communicate with.
+    #*************************************************************************************
     def post(self, url):
         r = requests.post(url, auth=(self._api_key, ''))
         return self.__parsed_response(r)
 
     #*************************************************************************************
-	# Method: get(self, string)
-	#
-	# Description
-	# -----------
-	# This method is accessed by all child classes and, enables the ability to request
+    # Method: get(self, string)
+    #
+    # Description
+    # -----------
+    # This method is accessed by all child classes and, enables the ability to request
     # data from the Unbounce server.
-	#
-	# RETurn
-	#  Type                            Description
-	# ------  ----------------------------------------------------------------------------
-	# JSON    Returns the response from the private method __parsed_response().
-	#
-	# ------------------------------- Arguments ------------------------------------------
-	#        Type               Name                         Description
-	# --------------------  ------------  ------------------------------------------------
-	# string                url           the Unbounce URL to communicate with.
+    #
+    # RETurn
+    #  Type                            Description
+    # ------  ----------------------------------------------------------------------------
+    # JSON    Returns the response from the private method __parsed_response().
+    #
+    # ------------------------------- Arguments ------------------------------------------
+    #        Type               Name                         Description
+    # --------------------  ------------  ------------------------------------------------
+    # string                url           the Unbounce URL to communicate with.
     # **kwargs              CONDITIONAL   Keyword arguments accepted by Unbounce's server.
-	#*************************************************************************************
+    #*************************************************************************************
     def get(self, url, **kwargs):
         r = requests.get(url, auth=(self._api_key, ''), **kwargs)
         return self.__parsed_response(r)
 
     #*************************************************************************************
-	# Method: get_global(self)
-	#
-	# Description
-	# -----------
-	# This method allows users to retrieve the global API meta-information.
-	#
-	# RETurn
-	#  Type                            Description
-	# ------  ----------------------------------------------------------------------------
-	# JSON    Returns the global API meta-information as a JSON object.
-	#
-	# ------------------------------- Arguments ------------------------------------------
-	#        Type               Name                         Description
-	# --------------------  ------------  ------------------------------------------------
-	#*************************************************************************************
+    # Method: get_global(self)
+    #
+    # Description
+    # -----------
+    # This method allows users to retrieve the global API meta-information.
+    #
+    # RETurn
+    #  Type                            Description
+    # ------  ----------------------------------------------------------------------------
+    # JSON    Returns the global API meta-information as a JSON object.
+    #
+    # ------------------------------- Arguments ------------------------------------------
+    #        Type               Name                         Description
+    # --------------------  ------------  ------------------------------------------------
+    #*************************************************************************************
     def get_global(self):
         url = 'https://api.unbounce.com/'
         r = requests.get(url, auth=(self._api_key, ''))
         return r.json()
 
     #*************************************************************************************
-	# Method: delete(self, string)
-	#
-	# Description
-	# -----------
-	# This method is accessed by all child classes and, enables the ability to delete
+    # Method: delete(self, string)
+    #
+    # Description
+    # -----------
+    # This method is accessed by all child classes and, enables the ability to delete
     # data from the Unbounce server.
-	#
-	# RETurn
-	#  Type                            Description
-	# ------  ----------------------------------------------------------------------------
-	# JSON    Returns the response from the private method __parsed_response().
-	#
-	# ------------------------------- Arguments ------------------------------------------
-	#        Type               Name                         Description
-	# --------------------  ------------  ------------------------------------------------
-	# string                url           the Unbounce URL to communicate with.
-	#*************************************************************************************
+    #
+    # RETurn
+    #  Type                            Description
+    # ------  ----------------------------------------------------------------------------
+    # JSON    Returns the response from the private method __parsed_response().
+    #
+    # ------------------------------- Arguments ------------------------------------------
+    #        Type               Name                         Description
+    # --------------------  ------------  ------------------------------------------------
+    # string                url           the Unbounce URL to communicate with.
+    #*************************************************************************************
     def delete(self, url):
         r = requests.delete(url, auth=(self._api_key, ''))
         return self.__parsed_response(r)
 
-    # This method takes a Response object and, returns the response body as a JSON object.
-    # Based on response.status_code, the appropriate message is returned or not returned.
-    # If the Response object encounters a Timeout exception, an appropriate error message is returned.
     #*************************************************************************************
-	# Method: __parsed_response(self, Response)
-	#
-	# Description
-	# -----------
-	# This method takes a Response object and, returns the response body as a JSON object.
+    # Method: __parsed_response(self, Response)
+    #
+    # Description
+    # -----------
+    # This method takes a Response object and, returns the response body as a JSON object.
     # Depending on the Response status code, the appropriate message is returned or not
     # returned. If the Response object has a Timeout exception associated with it, an
     # approppriate error message is returned.
-	#
-	# RETurn
-	#  Type                            Description
-	# ------  ----------------------------------------------------------------------------
-	# JSON    Returns the Response body as a JSON object or, a message depending on the
+    #
+    # RETurn
+    #  Type                            Description
+    # ------  ----------------------------------------------------------------------------
+    # JSON    Returns the Response body as a JSON object or, a message depending on the
     #         Response status code or potential exception associated with the Response
     #         object.
-	#
-	# ------------------------------- Arguments ------------------------------------------
-	#        Type               Name                         Description
-	# --------------------  ------------  ------------------------------------------------
-	# Response              response      the Response object received from the Unbounce
+    #
+    # ------------------------------- Arguments ------------------------------------------
+    #        Type               Name                         Description
+    # --------------------  ------------  ------------------------------------------------
+    # Response              response      the Response object received from the Unbounce
     #                                     server.
-	#*************************************************************************************
+    #*************************************************************************************
     def __parsed_response(self, response):
         try:
             # If response code = 500 return error message.

@@ -31,63 +31,63 @@ class Sub_Account(object):
     SUB_ACCOUNT_URL_BASE = 'https://api.unbounce.com/sub_accounts'
 
     #**************************************************************************************
-	# Constructor: __init__(self, library)
-	#
-	# Description
-	# -----------
-	# This constructor takes the client class as a parameter in order to gain access to
-	# it's variables and methods.
-	#
-	# ------------------------------- Arguments ------------------------------------------
-	#        Type               Name                         Description
-	# --------------------  ------------  ------------------------------------------------
-	# Class                 client        The parent class that houses all of the primary
+    # Constructor: __init__(self, library)
+    #
+    # Description
+    # -----------
+    # This constructor takes the client class as a parameter in order to gain access to
+    # it's variables and methods.
+    #
+    # ------------------------------- Arguments ------------------------------------------
+    #        Type               Name                         Description
+    # --------------------  ------------  ------------------------------------------------
+    # Class                 client        The parent class that houses all of the primary
     #                                     modules (variables and methods) to be accessed
     #                                     by child classes.
-	#*************************************************************************************
+    #*************************************************************************************
     def __init__(self, client):
         # Instantiating client (Parent) class in order to gain access to it's methods/variables.
         self.client = client
 
     #**************************************************************************************
-	# Method: get_sub_account(self, string)
-	#
-	# Description
-	# -----------
-	# This method allows users to retrieve the details of a single sub-account.
-	#
-	# RETurn
-	#  Type                            Description
-	# ------  ----------------------------------------------------------------------------
-	# JSON    Returns the client (Parent) class get() method's response.
-	#
-	# ------------------------------- Arguments ------------------------------------------
-	#     Type          Name                         Description
-	# -----------  ---------------  ------------------------------------------------------
-	# string       sub_account_id   The ID for a given sub-account.
-	#*************************************************************************************
+    # Method: get_sub_account(self, string)
+    #
+    # Description
+    # -----------
+    # This method allows users to retrieve the details of a single sub-account.
+    #
+    # RETurn
+    #  Type                            Description
+    # ------  ----------------------------------------------------------------------------
+    # JSON    Returns the client (Parent) class get() method's response.
+    #
+    # ------------------------------- Arguments ------------------------------------------
+    #     Type          Name                         Description
+    # -----------  ---------------  ------------------------------------------------------
+    # string       sub_account_id   The ID for a given sub-account.
+    #*************************************************************************************
     def get_sub_account(self, sub_account_id):
         url = self.SUB_ACCOUNT_URL_BASE + '/{0}'.format(sub_account_id)
         # Return the result of the client (Parent) class get() method, pass an appropriate URL.
         return self.client.get(url)
 
     #*************************************************************************************
-	# Method: get_sub_account_domains(self, string, **kwargs)
-	#
-	# Description
-	# -----------
-	# This method allows users to retrieve a list of all custom domains belonging to
+    # Method: get_sub_account_domains(self, string, **kwargs)
+    #
+    # Description
+    # -----------
+    # This method allows users to retrieve a list of all custom domains belonging to
     # a given sub-account.
-	#
-	# RETurn
-	#  Type                            Description
-	# ------  ----------------------------------------------------------------------------
-	# JSON    Returns the client (Parent) class get() method's response.
-	#
-	# ------------------------------- Arguments ------------------------------------------
-	#        Type               Name                         Description
-	# ------------------  --------------  ------------------------------------------------
-	# string              sub_account_id  The ID for a given sub-account.
+    #
+    # RETurn
+    #  Type                            Description
+    # ------  ----------------------------------------------------------------------------
+    # JSON    Returns the client (Parent) class get() method's response.
+    #
+    # ------------------------------- Arguments ------------------------------------------
+    #        Type               Name                         Description
+    # ------------------  --------------  ------------------------------------------------
+    # string              sub_account_id  The ID for a given sub-account.
     # **kwargs (string)   sort_order      Sort by creation date ('asc' or 'desc').
     #                                     Default: 'asc'
     # **kwargs (boolean)  count           When true, don't return the response's collection
@@ -100,7 +100,7 @@ class Sub_Account(object):
     # **kwargs (integer)  limit           Only return limit number of results (ex: 100).
     #                                     Default: 50
     #                                     Maximum: 1000
-	#*************************************************************************************
+    #*************************************************************************************
     def get_sub_account_domains(self, sub_account_id, **kwargs):
         # Initializing a dictionary for potential URL parameters.
         params = {}
@@ -111,22 +111,22 @@ class Sub_Account(object):
         return self.client.get(url, params=params)
 
     #*************************************************************************************
-	# Method: get_sub_account_page_groups(self, string, **kwargs)
-	#
-	# Description
-	# -----------
-	# This method allows users to retrieve a list of all page groups for a given
+    # Method: get_sub_account_page_groups(self, string, **kwargs)
+    #
+    # Description
+    # -----------
+    # This method allows users to retrieve a list of all page groups for a given
     # sub-account.
-	#
-	# RETurn
-	#  Type                            Description
-	# ------  ----------------------------------------------------------------------------
-	# JSON    Returns the client (Parent) class get() method's response.
-	#
-	# ------------------------------- Arguments ------------------------------------------
-	#        Type               Name                         Description
-	# ------------------  --------------  ------------------------------------------------
-	# string              sub_account_id  The ID for a given sub-account.
+    #
+    # RETurn
+    #  Type                            Description
+    # ------  ----------------------------------------------------------------------------
+    # JSON    Returns the client (Parent) class get() method's response.
+    #
+    # ------------------------------- Arguments ------------------------------------------
+    #        Type               Name                         Description
+    # ------------------  --------------  ------------------------------------------------
+    # string              sub_account_id  The ID for a given sub-account.
     # **kwargs (string)   sort_order      Sort by creation date ('asc' or 'desc').
     #                                     Default: 'asc'
     # **kwargs (boolean)  count           When true, don't return the response's collection
@@ -139,7 +139,7 @@ class Sub_Account(object):
     # **kwargs (integer)  limit           Only return limit number of results (ex: 100).
     #                                     Default: 50
     #                                     Maximum: 1000
-	#*************************************************************************************
+    #*************************************************************************************
     def get_sub_account_page_groups(self, sub_account_id, **kwargs):
         # Initializing a dictionary for potential URL parameters.
         params = {}
@@ -150,21 +150,21 @@ class Sub_Account(object):
         return self.client.get(url, params=params)
 
     #*************************************************************************************
-	# Method: get_sub_account_pages(self, string, **kwargs)
-	#
-	# Description
-	# -----------
-	# This method allows users to retrieve a list of all pages for a given sub-account.
-	#
-	# RETurn
-	#  Type                            Description
-	# ------  ----------------------------------------------------------------------------
-	# JSON    Returns the client (Parent) class get() method's response.
-	#
-	# ------------------------------- Arguments ------------------------------------------
-	#        Type               Name                         Description
-	# ------------------  --------------  ------------------------------------------------
-	# string              sub_account_id  The ID for a given sub-account.
+    # Method: get_sub_account_pages(self, string, **kwargs)
+    #
+    # Description
+    # -----------
+    # This method allows users to retrieve a list of all pages for a given sub-account.
+    #
+    # RETurn
+    #  Type                            Description
+    # ------  ----------------------------------------------------------------------------
+    # JSON    Returns the client (Parent) class get() method's response.
+    #
+    # ------------------------------- Arguments ------------------------------------------
+    #        Type               Name                         Description
+    # ------------------  --------------  ------------------------------------------------
+    # string              sub_account_id  The ID for a given sub-account.
     # **kwargs (string)   sort_order      Sort by creation date ('asc' or 'desc').
     #                                     Default: 'asc'
     # **kwargs (boolean)  count           When true, don't return the response's collection
@@ -177,7 +177,7 @@ class Sub_Account(object):
     # **kwargs (integer)  limit           Only return limit number of results (ex: 100).
     #                                     Default: 50
     #                                     Maximum: 1000
-	#*************************************************************************************
+    #*************************************************************************************
     def get_sub_account_pages(self, sub_account_id, **kwargs):
         # Initializing a dictionary for potential URL parameters.
         params = {}
