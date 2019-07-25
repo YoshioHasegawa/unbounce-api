@@ -1,11 +1,17 @@
 # unbounceapi/setup.py
 from distutils.core import setup
+
+with open("README.md", "r") as f:
+    long_description = f.read()
+
 setup(
   name = 'unbounce-python-api',
   packages = ['unbounceapi'],
   version = '1.1.1',
   license='MIT',
   description = 'An Unbounce API wrapper written in python.',
+  long_description = long_description,
+  long_description_content_type = "text/markdown",
   author = 'Yoshio Hasegawa',
   author_email = 'yoshiohasegawa206@gmail.com',
   url = 'https://github.com/YoshioHasegawa/unbounce-python-api',
