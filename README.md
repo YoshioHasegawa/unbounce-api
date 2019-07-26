@@ -170,7 +170,7 @@ Read the docs here: [Leads API](https://developer.unbounce.com/api_reference/#id
 ## Users
 Read the docs here: [Users API](https://developer.unbounce.com/api_reference/#id_users).
 
-- `ub.user.get_user(user_id=None)`
+- `ub.users.get_user(user_id=None)`
     - user_id (optional)
 
 
