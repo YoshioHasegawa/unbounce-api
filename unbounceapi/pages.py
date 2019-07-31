@@ -75,7 +75,7 @@ class Page(object):
     #                                     Default: 'asc'
     # **kwargs (boolean)    count         When true, don't return the response's collection
     #                                     attribute (ex: 'True').
-    # **kwargs (string)     from          Limit results to those created after from
+    # **kwargs (string)     _from         Limit results to those created after _from
     #                                     (ex: '2014-12-31T00:00:00.000Z').
     # **kwargs (string)     to            Limit results to those created before to
     #                                     (ex: '2014-12-31T23:59:59.999Z').
@@ -92,6 +92,8 @@ class Page(object):
         # Initializing a dictionary for potential URL parameters.
         params = {}
         if kwargs:
+            if '_from' in kwargs:
+                kwargs['from'] = kwargs.pop('_from')
             params = kwargs
         if page_id == None:
             url = self.PAGE_URL_BASE
@@ -158,7 +160,7 @@ class Page(object):
     #                                     Default: 'asc'
     # **kwargs (boolean)    count         When true, don't return the response's collection
     #                                     attribute (ex: 'True').
-    # **kwargs (string)     from          Limit results to those created after from
+    # **kwargs (string)     _from         Limit results to those created after _from
     #                                     (ex: '2014-12-31T00:00:00.000Z').
     # **kwargs (string)     to            Limit results to those created before to
     #                                     (ex: '2014-12-31T23:59:59.999Z').
@@ -171,6 +173,8 @@ class Page(object):
         # Initializing a dictionary for potential URL parameters.
         params = {}
         if kwargs:
+            if '_from' in kwargs:
+                kwargs['from'] = kwargs.pop('_from')
             params = kwargs
         if lead_id == None:
             url = self.PAGE_URL_BASE + '/{0}/leads'.format(page_id)

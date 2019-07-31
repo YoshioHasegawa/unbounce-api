@@ -33,8 +33,8 @@ Read the docs here: [Accounts API](https://developer.unbounce.com/api_reference/
     - accounts_id (required)
     - sort_order (optional) [Default: 'asc', Options: 'asc' or 'desc']
     - count (optional) [Default: 'False', Options: 'True' or 'False']
-    - from (optional) [ex: '2018-01-01']
-    - to (optional) [ex: '2018-12-31']
+    - _from (optional) [ex: '2018-01-01T00:00:00.000Z']
+    - to (optional) [ex: '2018-12-31T00:00:00.000Z']
     - offset (optional) [ex: '3']
     - limit (optional) [Default: '50', Max: '1000', ex: '10']
 
@@ -42,8 +42,8 @@ Read the docs here: [Accounts API](https://developer.unbounce.com/api_reference/
     - account_id (required)
     - sort_order (optional) [Default: 'asc', Options: 'asc' or 'desc']
     - count (optional) [Default: 'False', Options: 'True' or 'False']
-    - from (optional) [ex: '2018-01-01']
-    - to (optional) [ex: '2018-12-31']
+    - _from (optional) [ex: '2018-01-01T00:00:00.000Z']
+    - to (optional) [ex: '2018-12-31T00:00:00.000Z']
     - offset (optional) [ex: '3']
     - limit (optional) [Default: '50', Max: '1000', ex: '10']
 
@@ -59,8 +59,8 @@ Read the docs here: [Sub Accounts API](https://developer.unbounce.com/api_refere
     - sub_account_id (required)
     - sort_order (optional) [Default: 'asc', Options: 'asc' or ' desc']
     - count (optional) [Default: 'False', Options: 'True' or 'False']
-    - from (optional) [ex: '2018-01-01']
-    - to (optional) [ex: '2018-12-31']
+    - _from (optional) [ex: '2018-01-01T00:00:00.000Z']
+    - to (optional) [ex: '2018-12-31T00:00:00.000Z']
     - offset (optional) [ex: '3']
     - limit (optional) [Default: '50', Max: '1000', ex: '10']
 
@@ -68,8 +68,8 @@ Read the docs here: [Sub Accounts API](https://developer.unbounce.com/api_refere
     - sub_account_id (required)
     - sort_order (optional) [Default: 'asc', Options: 'asc' or 'desc']
     - count (optional) [Default: 'False', Options: 'True' or 'False']
-    - from (optional) [ex: '2018-01-01']
-    - to (optional) [ex: '2019-12-31']
+    - _from (optional) [ex: '2018-01-01T00:00:00.000Z']
+    - to (optional) [ex: '2018-12-31T00:00:00.000Z']
     - offset (optional) [ex: '3']
     - limit (optional) [Default: '50', Max: '1000', ex: '10']
 
@@ -77,8 +77,8 @@ Read the docs here: [Sub Accounts API](https://developer.unbounce.com/api_refere
     - sub_account_id (required)
     - sort_order (optional) [Default: 'asc', Options: 'asc' or 'desc']
     - count (optional) [Default: 'False', Options: 'True' or 'False']
-    - from (optional) [ex: '2018-01-01']
-    - to (optional) [ex: '2018-12-31']
+    - _from (optional) [ex: '2018-01-01T00:00:00.000Z']
+    - to (optional) [ex: '2018-12-31T00:00:00.000Z']
     - offset (optional) [ex: '3']
     - limit (optional) [Default: '50', Max: '1000', ex: '10']
 
@@ -94,8 +94,8 @@ Read the docs here: [Domains API](https://developer.unbounce.com/api_reference/#
     - domain_id (required)
     - sort_order (optional) [Default: 'asc', Options: 'asc' or 'desc']
     - count (optional) [Default: 'False', Options: 'True or 'False']
-    - from (optional) [ex: '2018-01-01']
-    - to (optional) [ex: '2018-12-31']
+    - _from (optional) [ex: '2018-01-01T00:00:00.000Z']
+    - to (optional) [ex: '2018-12-31T00:00:00.000Z']
     - offset (optional) [ex: '3']
     - limit (optional) [Default: '50', Max: '1000', ex: '10']
 
@@ -108,8 +108,8 @@ Read the docs here: [Pages API](https://developer.unbounce.com/api_reference/#id
     - page_id (optional)
     - sort_order (optional) [Default: 'asc', Options: 'asc' or 'desc']
     - count (optional) [Default: 'False', Options: 'True' or 'False']
-    - from (optional) [ex: '2018-01-01']
-    - to (optional) [ex: '2018-12-31']
+    - _from (optional) [ex: '2018-01-01T00:00:00.000Z']
+    - to (optional) [ex: '2018-12-31T00:00:00.000Z']
     - offset (optional) [ex: '3']
     - limit (optional) [Default: '50', Max: '1000', ex: '10']
     - with_stats (optional) [Default: 'False', Options: 'True' or 'False']
@@ -126,8 +126,8 @@ Read the docs here: [Pages API](https://developer.unbounce.com/api_reference/#id
     - lead_id (optional)
     - sort_order (optional) [Default: 'asc', Options: 'asc' or 'desc']
     - count (optional) [Default: 'False', Options: 'True' or 'False']
-    - from (optonal) [ex: '2018-01-01']
-    - to (optional) [ex: '2018-12-31']
+    - _from (optional) [ex: '2018-01-01T00:00:00.000Z']
+    - to (optional) [ex: '2018-12-31T00:00:00.000Z']
     - offset (optional) [ex: '3']
     - limit (optional) [Default: '50', Max: '1000', ex: '10']
 
@@ -154,8 +154,8 @@ Read the docs here: [Page Groups API](https://developer.unbounce.com/api_referen
     - page_group_id (required)
     - sort_order (optional) [Default: 'asc', Options: 'asc' or 'desc']
     - count (optional) [Default: 'False', Options: 'True' or 'False']
-    - from (optional) [ex: '2018-01-01']
-    - to (optional) [ex: '2018-12-31']
+    - _from (optional) [ex: '2018-01-01T00:00:00.000Z']
+    - to (optional) [ex: '2018-12-31T00:00:00.000Z']
     - offset (optional) [ex: '3']
     - limit (optional) [Default: '50', Max: '1000', Ex: '10']
 

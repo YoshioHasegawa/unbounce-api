@@ -69,7 +69,7 @@ class Page_Group(object):
     #                                     Default: 'asc'
     # **kwargs (boolean)    count         When true, don't return the response's collection
     #                                     attribute (ex: 'True').
-    # **kwargs (string)     from          Limit results to those created after from
+    # **kwargs (string)     _from         Limit results to those created after _from
     #                                     (ex: '2014-12-31T00:00:00.000Z').
     # **kwargs (string)     to            Limit results to those created before to
     # **kwargs (integer)    offset        Omit the first offset number of results (ex: 3).
@@ -81,6 +81,8 @@ class Page_Group(object):
         # Initializing a dictionary for potential URL parameters.
         params = {}
         if kwargs:
+            if '_from' in kwargs:
+                kwargs['from'] = kwargs.pop('_from')
             params = kwargs
         url = self.PAGE_GROUP_URL_BASE + '/{0}'.format(page_group_id) + '/pages'
         # Return the result of the client (Parent) class get() method, pass an appropriate URL.
