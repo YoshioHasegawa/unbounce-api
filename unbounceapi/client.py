@@ -52,7 +52,7 @@ UNBOUNCE_UNAUTHORIZED_REQUEST_MESSAGE = 'Unauthorized Request: The request requi
 UNBOUNCE_FORBIDDEN_REQUEST_MESSAGE = 'Forbidden Access: The API Key is forbidden to access the resource, or the Access Token is bad or has expired.'
 UNBOUNCE_NOT_FOUND_MESSAGE = 'Not Found: The server has not found anything matching the request-uri.'
 UNBOUNCE_VERSION_CONFLICT_MESSAGE = 'Version Conflict: The request could not be completed due to a conflict with the current state of the resource.'
-UNBOUNCE_TOO_MANY_REQUESTS_MESSAGE = 'Too Many Requests: Too many request in a given amount of time.'
+UNBOUNCE_TOO_MANY_REQUESTS_MESSAGE = 'Too Many Requests: Too many requests in a given amount of time.'
 UNBOUNCE_SERVER_ERROR_MESSAGE = 'Server Error: Something went wrong on Unbounce\'s end.'
 
 
@@ -67,7 +67,7 @@ class Unbounce(object):
     # Description
     # -----------
     # This constructor takes an API KEY and instantiates all sub-classes representing all
-    # approppriate Unbounce objects.
+    # appropriate Unbounce objects.
     #
     # ------------------------------- Arguments ------------------------------------------
     #        Type               Name                         Description
@@ -180,7 +180,7 @@ class Unbounce(object):
     # This method takes a Response object and, returns the response body as a JSON object.
     # Depending on the Response status code, the appropriate message is returned or not
     # returned. If the Response object has a Timeout exception associated with it, an
-    # approppriate error message is returned.
+    # appropriate error message is returned.
     #
     # RETurn
     #  Type                            Description

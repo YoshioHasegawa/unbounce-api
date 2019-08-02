@@ -143,7 +143,7 @@ class Page(object):
     # Description
     # -----------
     # This method allows users to retrieve a list of all leads for a given page. Users may
-    # explicitly specify page_id AND lead_id in order to retrieve details of of single lead.
+    # explicitly specify page_id AND lead_id in order to retrieve details of a single lead.
     #
     # RETurn
     #  Type                            Description
