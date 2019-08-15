@@ -15,8 +15,8 @@
 #
 # Class Methods
 # -------------
-#    Name                                     Description
-# ----------                          ------------------------------------------------
+#       Name                                         Description
+# ------------------                  ------------------------------------------------
 # __init__()                          Constructor
 # post()                              Submits data to be processed to the Unbounce
 #                                     server.
@@ -112,7 +112,7 @@ class Unbounce(object):
     # Description
     # -----------
     # This method is accessed by all child classes and, enables the ability to request
-    # data from the Unbounce server.
+    # data from the Unbounce server. The request timeout limit is 600 seconds (10 mins).
     #
     # RETurn
     #  Type                            Description
@@ -126,7 +126,8 @@ class Unbounce(object):
     # **kwargs              CONDITIONAL   Keyword arguments accepted by Unbounce's server.
     #*************************************************************************************
     def get(self, url, **kwargs):
-        r = requests.get(url, auth=(self._api_key, ''), **kwargs)
+        r = requests.get(url, auth=(self._api_key, ''), timeout=600, **kwargs)
+
         return self.__parsed_response(r)
 
     #*************************************************************************************
