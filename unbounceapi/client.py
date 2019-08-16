@@ -74,7 +74,7 @@ class Unbounce(object):
     # --------------------  ------------  ------------------------------------------------
     # string                api_key       Unbounce API key.
     #*************************************************************************************
-    def __init__(self, api_key):
+    def __init__(self, api_key, timeout_limit=600):
         self._api_key = api_key
         self.accounts = Account(self)
         self.sub_accounts = Sub_Account(self)
@@ -83,6 +83,7 @@ class Unbounce(object):
         self.page_groups = Page_Group(self)
         self.leads = Lead(self)
         self.users = User(self)
+        self.timeout = timeout_limit
 
     #*************************************************************************************
     # Method: post(self, string)
@@ -126,7 +127,7 @@ class Unbounce(object):
     # **kwargs              CONDITIONAL   Keyword arguments accepted by Unbounce's server.
     #*************************************************************************************
     def get(self, url, **kwargs):
-        r = requests.get(url, auth=(self._api_key, ''), timeout=600, **kwargs)
+        r = requests.get(url, auth=(self._api_key, ''), timeout=self.timeout, **kwargs)
 
         return self.__parsed_response(r)
 
