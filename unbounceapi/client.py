@@ -85,6 +85,10 @@ class Unbounce(object):
         self.users = User(self)
         self.timeout = timeout_limit
 
+        # Testing the Unbounce connection to ensure the correct API key has been passed.
+        r = requests.get('https://api.unbounce.com/accounts', auth=(self._api_key, ''))
+        self.__parsed_response(r)
+
     #*************************************************************************************
     # Method: post(self, string)
     #
@@ -198,25 +202,24 @@ class Unbounce(object):
     #                                     server.
     #*************************************************************************************
     def __parsed_response(self, response):
-        try:
-            # If response code = 500 return error message.
-            if response.status_code == BAD_REQUEST:
-                return {'error': UNBOUNCE_BAD_REQUEST_MESSAGE, 'code': response.status_code}
-            elif response.status_code == UNAUTHORIZED_REQUEST:
-                return {'error': UNBOUNCE_UNAUTHORIZED_REQUEST_MESSAGE, 'code': response.status_code}
-            elif response.status_code == FORBIDDEN_REQUEST:
-                return {'error': UNBOUNCE_FORBIDDEN_REQUEST_MESSAGE, 'code': response.status_code}
-            elif response.status_code == NOT_FOUND:
-                return {'error': UNBOUNCE_NOT_FOUND_MESSAGE, 'code': response.status_code}
-            elif response.status_code == VERSION_CONFLICT:
-                return {'error': UNBOUNCE_VERSION_CONFLICT_MESSAGE, 'code': response.status_code}
-            elif response.status_code == TOO_MANY_REQUESTS:
-                return {'error': UNBOUNCE_TOO_MANY_REQUESTS_MESSAGE, 'code': response.status_code}
-            elif response.status_code == SERVER_ERROR:
-                return {'error': UNBOUNCE_SERVER_ERROR_MESSAGE, 'code': response.status_code}
-            # Else, return repsonse.json()
-            else:
-                return response.json()
-        # If timeout occurs, return timeout connection error message.
-        except (requests.exceptions.Timeout, requests.exceptions.ConnectionError):
-            return {'error': 'Connection Error'}
+        # If the Response status code is 200, return Response.json().
+        if response.status_code == OK:
+            return response.json()
+
+        # Else, handle specific errors...
+        elif response.status_code == BAD_REQUEST:
+            raise requests.HTTPError('{0} '.format(response.status_code) + UNBOUNCE_BAD_REQUEST_MESSAGE)
+        elif response.status_code == UNAUTHORIZED_REQUEST:
+            raise requests.ConnectionError('{0} '.format(response.status_code) + UNBOUNCE_UNAUTHORIZED_REQUEST_MESSAGE)
+        elif response.status_code == FORBIDDEN_REQUEST:
+            raise requests.ConnectionError('{0} '.format(response.status_code) + UNBOUNCE_FORBIDDEN_REQUEST_MESSAGE)
+        elif response.status_code == NOT_FOUND:
+            raise requests.HTTPError('{0} '.format(response.status_code) + UNBOUNCE_NOT_FOUND_MESSAGE)
+        elif response.status_code == VERSION_CONFLICT:
+            raise requests.HTTPError('{0} '.format(response.status_code) + UNBOUNCE_VERSION_CONFLICT_MESSAGE)
+        elif response.status_code == TOO_MANY_REQUESTS:
+            raise requests.HTTPError('{0} '.format(response.status_code) + UNBOUNCE_TOO_MANY_REQUESTS_MESSAGE)
+        elif response.status_code == SERVER_ERROR:
+            raise requests.HTTPError('{0} '.format(response.status_code) + UNBOUNCE_SERVER_ERROR_MESSAGE)
+        else:
+            raise requests.HTTPError('{0} '.format(response.status_code) + 'Unknown Error...')
