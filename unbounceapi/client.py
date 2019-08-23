@@ -57,30 +57,38 @@ UNBOUNCE_SERVER_ERROR_MESSAGE = 'Server Error: Something went wrong on Unbounce\
 
 
 class Unbounce(object):
-    '''Description
-    -----------
-    This object establishes a connection to the Unbounce Server with 
-    a given API Access Key. This API wrapper contains basic resource
-    methods (GET/PUT/POST/DELETE).
-    |
-    Return Type
-    -----------
-    None
-    |
-    Parameters
-    ----------
-    |
-    - Parameter 1 -
-     Name: api_key
-     Type: string
-     Description: Unbounce API Access Key.
-    |
-    - Parameter 2 -
-     Name: timeout_limit
-     Type: integer
-     Description: The timeout limit (in seconds) for a given get
-     request.
-    '''
+    """This object establishes a connection to the Unbounce Server with \
+        a given API Access Key. This API wrapper contains basic resource \
+        methods (GET/PUT/POST/DELETE).
+    
+    Arguments:
+        api_key {string} -- Unbounce API Access Key.
+        timeout_limit {integer} -- The timeout limit (in seconds) for a \
+            given get request.
+    
+    Raises:
+        requests.HTTPError: Bad Request: The request could not be \
+            understood, possible syntax malformation.
+        requests.ConnectionError: Unauthorized Request: The request \
+            requires user authentication. API Key or Access Token is \
+                missing.
+        requests.ConnectionError: Forbidden Access: The API Key is \
+            forbidden to access the resource, or the Access Token is \
+                bad or has expired.
+        requests.HTTPError: Not Found: The server has not found anything \
+            matching the request-uri.
+        requests.HTTPError: Version Conflict: The request could not be \
+            completed due to a conflict with the current state of the \
+                resource.
+        requests.HTTPError: Too Many Requests: Too many requests in a \
+            given amount of time.
+        requests.HTTPError: Server Error: Something went wrong on \
+            Unbounce\'s end.
+        requests.HTTPError: Unknown Error.
+    
+    Returns:
+        None
+    """
 
     # Initializing static variables providing version and content information.
     USER_AGENT = 'Unbounce Python {0}'.format(__version__)
@@ -135,23 +143,6 @@ class Unbounce(object):
     # string                url           the Unbounce URL to communicate with.
     #*************************************************************************************
     def post(self, url):
-        '''Description
-        -----------
-        This method is accessed by all child classes and, enables the 
-        ability to enqueue data to the Unbounce server.
-        |
-        Return Type
-        -----------
-        JSON - The response object received from the Unbounce server.
-        |
-        Parameters
-        ----------
-        |
-        - Parameter 1 -
-        Name: url
-        Type: string
-        Description: Unbounce URL to communicate with.
-        '''
         r = requests.post(url, auth=(self._api_key, ''))
         return self.__parsed_response(r)
 
