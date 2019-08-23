@@ -57,22 +57,16 @@ UNBOUNCE_SERVER_ERROR_MESSAGE = 'Server Error: Something went wrong on Unbounce\
 
 
 class Unbounce(object):
-    """
-    -----------
-    Description
-    -----------
-    This object establishes a connection to the Unbounce Server with
+    """This object establishes a connection to the Unbounce Server with
     a given API Access Key. This API wrapper contains basic resource 
     methods (GET/PUT/POST/DELETE).
 
-    ---------
     Arguments
     ---------
     1. api_key {string} -- Unbounce API Access Key.
     2. timeout_limit {integer} -- The timeout limit (in seconds) for a 
     given get request.
-
-    ------
+    
     Raises
     ------
     1. requests.HTTPError: Bad Request: The request could not be 
@@ -92,8 +86,7 @@ class Unbounce(object):
     7. requests.HTTPError: Server Error: Something went wrong on 
     Unbounce\'s end.
     8. requests.HTTPError: Unknown Error.
-    
-    -------
+
     Returns
     -------
     None
