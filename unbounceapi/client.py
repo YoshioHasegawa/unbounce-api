@@ -57,27 +57,24 @@ UNBOUNCE_SERVER_ERROR_MESSAGE = 'Server Error: Something went wrong on Unbounce\
 
 
 class Unbounce(object):
-    '''
-    Description
+    '''Description
     -----------
     This object establishes a connection to the Unbounce Server with 
     a given API Access Key. This API wrapper contains basic resource
     methods (GET/PUT/POST/DELETE).
-
-
+    |
     Return Type
     -----------
     None
-
-
+    |
     Parameters
     ----------
-
+    |
     - Parameter 1 -
      Name: api_key
      Type: string
      Description: Unbounce API Access Key.
-
+    |
     - Parameter 2 -
      Name: timeout_limit
      Type: integer
@@ -138,21 +135,18 @@ class Unbounce(object):
     # string                url           the Unbounce URL to communicate with.
     #*************************************************************************************
     def post(self, url):
-        '''
-        Description
+        '''Description
         -----------
         This method is accessed by all child classes and, enables the 
         ability to enqueue data to the Unbounce server.
-
-
+        |
         Return Type
         -----------
         JSON - The response object received from the Unbounce server.
-        
-
+        |
         Parameters
         ----------
-
+        |
         - Parameter 1 -
         Name: url
         Type: string
