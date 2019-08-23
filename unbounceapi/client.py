@@ -58,8 +58,8 @@ UNBOUNCE_SERVER_ERROR_MESSAGE = 'Server Error: Something went wrong on Unbounce\
 
 
 class Unbounce(object):
-    """This object establishes a connection to the Unbounce Server with
-    and, contains basic resource methods (GET/PUT/POST/DELETE).
+    """This object establishes a connection to the Unbounce Server and,
+    contains basic resource methods (GET/PUT/POST/DELETE).
 
     Arguments
     ---------
