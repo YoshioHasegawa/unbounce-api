@@ -58,16 +58,31 @@ UNBOUNCE_SERVER_ERROR_MESSAGE = 'Server Error: Something went wrong on Unbounce\
 
 class Unbounce(object):
     '''
+    Description
+    -----------
     This object establishes a connection to the Unbounce Server with 
     a given API Access Key. This API wrapper contains basic resource
     methods (GET/PUT/POST/DELETE).
 
-    ------------------------ Arguments -----------------------------
-       Type         Name                    Description
-    ----------  ------------   -------------------------------------
-    string      api_key        Unbounce API Access Key.
-    int         timeout_limit  The timeout limit (in seconds) for a 
-                               given get request.
+
+    Return Type
+    -----------
+    None
+
+
+    Parameters
+    ----------
+
+    - Parameter 1 -
+     Name: api_key
+     Type: string
+     Description: Unbounce API Access Key.
+
+    - Parameter 2 -
+     Name: timeout_limit
+     Type: integer
+     Description: The timeout limit (in seconds) for a given get
+     request.
     '''
 
     # Initializing static variables providing version and content information.
@@ -109,8 +124,8 @@ class Unbounce(object):
     #
     # Description
     # -----------
-    # This method is accessed by all child classes and, enables the ability to submit data
-    # to be processed to the Unbounce server.
+    # This method is accessed by all child classes and, enables the ability to enqueue 
+    # data to the Unbounce server.
     #
     # RETurn
     #  Type                            Description
@@ -123,6 +138,26 @@ class Unbounce(object):
     # string                url           the Unbounce URL to communicate with.
     #*************************************************************************************
     def post(self, url):
+        '''
+        Description
+        -----------
+        This method is accessed by all child classes and, enables the 
+        ability to enqueue data to the Unbounce server.
+
+
+        Return Type
+        -----------
+        JSON - The response object received from the Unbounce server.
+        
+
+        Parameters
+        ----------
+
+        - Parameter 1 -
+        Name: url
+        Type: string
+        Description: Unbounce URL to communicate with.
+        '''
         r = requests.post(url, auth=(self._api_key, ''))
         return self.__parsed_response(r)
 
