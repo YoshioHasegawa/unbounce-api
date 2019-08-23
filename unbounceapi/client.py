@@ -7,6 +7,7 @@
 # Revision     Date                        Release Comment
 # --------  ----------  --------------------------------------------------------------
 #   1.0     7/23/2019   Initial Release
+#   1.1     8/23/2019   Including Docstrings for Constructor and Methods.
 #
 # File Description
 # ----------------
@@ -58,8 +59,7 @@ UNBOUNCE_SERVER_ERROR_MESSAGE = 'Server Error: Something went wrong on Unbounce\
 
 class Unbounce(object):
     """This object establishes a connection to the Unbounce Server with
-    a given API Access Key. This API wrapper contains basic resource 
-    methods (GET/PUT/POST/DELETE).
+    and, contains basic resource methods (GET/PUT/POST/DELETE).
 
     Arguments
     ---------
@@ -75,11 +75,11 @@ class Unbounce(object):
     5. requests.HTTPError: Version Conflict
     6. requests.HTTPError: Too Many Requests
     7. requests.HTTPError: Server Error
-    8. requests.HTTPError: Unknown Error.
+    8. requests.HTTPError: Unknown Error
 
     Returns
     -------
-    None
+    Class -- Instance of Unbounce.
     """
 
     # Initializing static variables providing version and content information.
@@ -135,6 +135,21 @@ class Unbounce(object):
     # string                url           the Unbounce URL to communicate with.
     #*************************************************************************************
     def post(self, url):
+        """Enables the ability to enqueue data to the Unbounce server.
+
+        Arguments
+        ---------
+        1. url {string} -- The Unbound URL to communicate with.
+        
+        Raises
+        ------
+        None
+        
+        Returns
+        -------
+        JSON -- The Response object received from the Unbounce server.
+        """
+
         r = requests.post(url, auth=(self._api_key, ''))
         return self.__parsed_response(r)
 
@@ -158,6 +173,21 @@ class Unbounce(object):
     # **kwargs              CONDITIONAL   Keyword arguments accepted by Unbounce's server.
     #*************************************************************************************
     def get(self, url, **kwargs):
+        """Enables the ability to request data from the Unbounce server.
+
+        Arguments
+        ---------
+        1. url {string} -- The Unbound URL to communicate with.
+        
+        Raises
+        ------
+        None
+        
+        Returns
+        -------
+        JSON -- The Response object received from the Unbounce server.
+        """
+
         r = requests.get(url, auth=(self._api_key, ''), timeout=self.timeout, **kwargs)
 
         return self.__parsed_response(r)
@@ -179,6 +209,20 @@ class Unbounce(object):
     # --------------------  ------------  ------------------------------------------------
     #*************************************************************************************
     def get_global(self):
+        """Allows users to retrieve the global API meta-information.
+
+        Arguments
+        ---------
+        None
+        
+        Raises
+        ------
+        None
+        
+        Returns
+        -------
+        JSON -- The Response object received from the Unbounce server.
+        """
         url = 'https://api.unbounce.com/'
         r = requests.get(url, auth=(self._api_key, ''))
         return r.json()
@@ -202,6 +246,20 @@ class Unbounce(object):
     # string                url           the Unbounce URL to communicate with.
     #*************************************************************************************
     def delete(self, url):
+        """Enables the ability delete data from the Unbounce server.
+
+        Arguments
+        ---------
+        1. url {string} -- The Unbound URL to communicate with.
+        
+        Raises
+        ------
+        None
+        
+        Returns
+        -------
+        JSON -- The Response object received from the Unbounce server.
+        """
         r = requests.delete(url, auth=(self._api_key, ''))
         return self.__parsed_response(r)
 
@@ -210,7 +268,7 @@ class Unbounce(object):
     #
     # Description
     # -----------
-    # This method takes a Response object and, returns the response body as a JSON object.
+    # This method takes a Response object and, returns the Response body as a JSON object.
     # Depending on the Response status code, the appropriate message is returned or not
     # returned. If the Response object has a Timeout exception associated with it, an
     # appropriate error message is returned.
@@ -229,6 +287,27 @@ class Unbounce(object):
     #                                     server.
     #*************************************************************************************
     def __parsed_response(self, response):
+        """Returns the Response body as a JSON object.
+
+        Arguments
+        ---------
+        1. response {Response} -- the Response object received from the Unbounce server.
+        
+        Raises
+        ------
+        1. requests.HTTPError: Bad Request
+        2. requests.ConnectionError: Unauthorized Request
+        3. requests.ConnectionError: Forbidden Access
+        4. requests.HTTPError: Not Found
+        5. requests.HTTPError: Version Conflict
+        6. requests.HTTPError: Too Many Requests
+        7. requests.HTTPError: Server Error
+        8. requests.HTTPError: Unknown Error
+        
+        Returns
+        -------
+        JSON -- The Response object received from the Unbounce server.
+        """
         # If the Response status code is 200, return Response.json().
         if response.status_code == OK:
             return response.json()

@@ -7,10 +7,11 @@
 # Revision     Date                        Release Comment
 # --------  ----------  --------------------------------------------------------------
 #   1.0     7/23/2019   Initial Release
+#   1.1     8/23/2019   Including Docstrings for Constructor and Methods.
 #
 # File Description
 # ----------------
-# Contains API routes for querying Sub Accounts.
+# Contains API routes for querying Sub-Accounts.
 # https://developer.unbounce.com/api_reference/#id_sub_accounts__sub_account_id_
 #
 # Class Methods
@@ -18,16 +19,31 @@
 #    Name                                     Description
 # ----------                  --------------------------------------------------------
 # __init__()                  Constructor
-# get_sub_account()           Returns details of a single Unbounce sub account.
-# get_sub_account_domains     Returns a sub-account's domains.
-# get_sub_account_page_groups Returns a sub-account's page groups.
-# get_sub_account_pages       Returns a sub-account's pages.
+# get_sub_account()           Returns details of a single Unbounce Sub-Account.
+# get_sub_account_domains     Returns a Sub-Account's Domains.
+# get_sub_account_page_groups Returns a Sub-Account's Page Groups.
+# get_sub_account_pages       Returns a Sub-Account's Pages.
 #*************************************************************************************
 # Imported Packages:
 import requests
 
 class Sub_Account(object):
-    # Initializing static variable for Unbounce Sub Account URL base.
+    """A sub-class to Unbounce that contains routes for Sub-Account Objects.
+
+    Arguments
+    ---------
+    1. client {class} -- The parent class; Unbounce.
+    
+    Raises
+    ------
+    None
+
+    Returns
+    -------
+    Class -- Instance of Sub_Account.
+    """
+
+    # Initializing static variable for Unbounce Sub-Account URL base.
     SUB_ACCOUNT_URL_BASE = 'https://api.unbounce.com/sub_accounts'
 
     #**************************************************************************************
@@ -54,7 +70,7 @@ class Sub_Account(object):
     #
     # Description
     # -----------
-    # This method allows users to retrieve the details of a single sub-account.
+    # This method allows users to retrieve the details of a single Sub-Account.
     #
     # RETurn
     #  Type                            Description
@@ -64,9 +80,24 @@ class Sub_Account(object):
     # ------------------------------- Arguments ------------------------------------------
     #     Type          Name                         Description
     # -----------  ---------------  ------------------------------------------------------
-    # string       sub_account_id   The ID for a given sub-account.
+    # string       sub_account_id   The ID for a given Sub-Account.
     #*************************************************************************************
     def get_sub_account(self, sub_account_id):
+        """Allows users to retrieve the details of a single Sub-Account.
+
+        Arguments
+        ---------
+        1. sub_account_id {string} -- The ID for a given Sub-Account.
+
+        Raises
+        ------
+        None
+
+        Returns
+        -------
+        JSON -- The Response object received from the Unbounce server.
+        """
+
         url = self.SUB_ACCOUNT_URL_BASE + '/{0}'.format(sub_account_id)
         # Return the result of the client (Parent) class get() method, pass an appropriate URL.
         return self.client.get(url)
@@ -76,8 +107,8 @@ class Sub_Account(object):
     #
     # Description
     # -----------
-    # This method allows users to retrieve a list of all custom domains belonging to
-    # a given sub-account.
+    # This method allows users to retrieve a list of all custom Domains belonging to
+    # a given Sub-Account.
     #
     # RETurn
     #  Type                            Description
@@ -87,7 +118,7 @@ class Sub_Account(object):
     # ------------------------------- Arguments ------------------------------------------
     #        Type               Name                         Description
     # ------------------  --------------  ------------------------------------------------
-    # string              sub_account_id  The ID for a given sub-account.
+    # string              sub_account_id  The ID for a given Sub-Account.
     # **kwargs (string)   sort_order      Sort by creation date ('asc' or 'desc').
     #                                     Default: 'asc'
     # **kwargs (boolean)  count           When true, don't return the response's collection
@@ -102,6 +133,31 @@ class Sub_Account(object):
     #                                     Maximum: 1000
     #*************************************************************************************
     def get_sub_account_domains(self, sub_account_id, **kwargs):
+        """Allows users to retrieve a list of all custom Domains belonging to
+        a given Sub-Account.
+
+        Arguments
+        ---------
+        1. sub_account_id {string} -- The ID for a given Sub-Account.
+
+        Keyword Arguments
+        -----------------
+        1. sort_order -- Sort by creation date ('asc' or 'desc').
+        2. count -- When true, don't return the response's collection attribute.
+        3. _from -- Limit results to those created after _from.
+        4. to -- Limit results to those created before to.
+        5. offset -- Omit the first offset number of results.
+        6. limit -- Only return limit number of results.
+
+        Raises
+        ------
+        None
+
+        Returns
+        -------
+        JSON -- The Response object received from the Unbounce server.
+        """
+
         # Initializing a dictionary for potential URL parameters.
         params = {}
         if kwargs:
@@ -117,8 +173,8 @@ class Sub_Account(object):
     #
     # Description
     # -----------
-    # This method allows users to retrieve a list of all page groups for a given
-    # sub-account.
+    # This method allows users to retrieve a list of all Page Groups for a given
+    # Sub-Account.
     #
     # RETurn
     #  Type                            Description
@@ -128,7 +184,7 @@ class Sub_Account(object):
     # ------------------------------- Arguments ------------------------------------------
     #        Type               Name                         Description
     # ------------------  --------------  ------------------------------------------------
-    # string              sub_account_id  The ID for a given sub-account.
+    # string              sub_account_id  The ID for a given Sub-Account.
     # **kwargs (string)   sort_order      Sort by creation date ('asc' or 'desc').
     #                                     Default: 'asc'
     # **kwargs (boolean)  count           When true, don't return the response's collection
@@ -143,6 +199,31 @@ class Sub_Account(object):
     #                                     Maximum: 1000
     #*************************************************************************************
     def get_sub_account_page_groups(self, sub_account_id, **kwargs):
+        """Allows users to retrieve a list of all Page Groups for a given 
+        Sub-Account.
+
+        Arguments
+        ---------
+        1. sub_account_id {string} -- The ID for a given Sub-Account.
+
+        Keyword Arguments
+        -----------------
+        1. sort_order -- Sort by creation date ('asc' or 'desc').
+        2. count -- When true, don't return the response's collection attribute.
+        3. _from -- Limit results to those created after _from.
+        4. to -- Limit results to those created before to.
+        5. offset -- Omit the first offset number of results.
+        6. limit -- Only return limit number of results.
+
+        Raises
+        ------
+        None
+
+        Returns
+        -------
+        JSON -- The Response object received from the Unbounce server.
+        """
+
         # Initializing a dictionary for potential URL parameters.
         params = {}
         if kwargs:
@@ -158,7 +239,7 @@ class Sub_Account(object):
     #
     # Description
     # -----------
-    # This method allows users to retrieve a list of all pages for a given sub-account.
+    # This method allows users to retrieve a list of all Pages for a given Sub-Account.
     #
     # RETurn
     #  Type                            Description
@@ -168,7 +249,7 @@ class Sub_Account(object):
     # ------------------------------- Arguments ------------------------------------------
     #        Type               Name                         Description
     # ------------------  --------------  ------------------------------------------------
-    # string              sub_account_id  The ID for a given sub-account.
+    # string              sub_account_id  The ID for a given Sub-Account.
     # **kwargs (string)   sort_order      Sort by creation date ('asc' or 'desc').
     #                                     Default: 'asc'
     # **kwargs (boolean)  count           When true, don't return the response's collection
@@ -183,6 +264,31 @@ class Sub_Account(object):
     #                                     Maximum: 1000
     #*************************************************************************************
     def get_sub_account_pages(self, sub_account_id, **kwargs):
+        """Allows users to retrieve a list of all Pages for a given
+        Sub-Account.
+
+        Arguments
+        ---------
+        1. sub_account_id {string} -- The ID for a given Sub-Account.
+
+        Keyword Arguments
+        -----------------
+        1. sort_order -- Sort by creation date ('asc' or 'desc').
+        2. count -- When true, don't return the response's collection attribute.
+        3. _from -- Limit results to those created after _from.
+        4. to -- Limit results to those created before to.
+        5. offset -- Omit the first offset number of results.
+        6. limit -- Only return limit number of results.
+
+        Raises
+        ------
+        None
+
+        Returns
+        -------
+        JSON -- The Response object received from the Unbounce server.
+        """
+
         # Initializing a dictionary for potential URL parameters.
         params = {}
         if kwargs:
@@ -191,4 +297,4 @@ class Sub_Account(object):
             params = kwargs
         url = self.SUB_ACCOUNT_URL_BASE + '/{0}'.format(sub_account_id) + '/pages'
         # Return the result of the client (Parent) class get() method, pass an appropriate URL.
-        return self.client.get(url)
+        return self.client.get(url, params=params)

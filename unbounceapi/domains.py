@@ -7,10 +7,11 @@
 # Revision     Date                        Release Comment
 # --------  ----------  --------------------------------------------------------------
 #   1.0     7/23/2019   Initial Release
+#   1.1     8/23/2019   Including Docstrings for Constructor and Methods.
 #
 # File Description
 # ----------------
-# Contains API routes for querying domains.
+# Contains API routes for querying Domains.
 # https://developer.unbounce.com/api_reference/#id_domains__domain_id_
 #
 # Class Methods
@@ -18,13 +19,28 @@
 #    Name                                     Description
 # ----------                  --------------------------------------------------------
 # __init__()                  Constructor
-# get_domain()                Returns a custom domain registered with Unbounce.
-# get_domain_pages()          Returns a domain's pages.
+# get_domain()                Returns a custom Domain registered with Unbounce.
+# get_domain_pages()          Returns a Domain's Pages.
 #*************************************************************************************
 # Imported Packages:
 import requests
 
 class Domain(object):
+    """A sub-class to Unbounce that contains routes for Domain Objects.
+
+    Arguments
+    ---------
+    1. client {class} -- The parent class; Unbounce.
+    
+    Raises
+    ------
+    None
+
+    Returns
+    -------
+    Class -- Instance of Domain.
+    """
+
     # Initializing static variable for Unbounce Domain URL base.
     DOMAIN_URL_BASE = 'https://api.unbounce.com/domains'
 
@@ -52,7 +68,7 @@ class Domain(object):
     #
     # Description
     # -----------
-    # This method allows users to retrieve a custom domain that has been registered
+    # This method allows users to retrieve a custom Domain that has been registered
     # with Unbounce.
     #
     # RETurn
@@ -63,9 +79,25 @@ class Domain(object):
     # ------------------------------- Arguments ------------------------------------------
     #        Type               Name                         Description
     # --------------------  ------------  ------------------------------------------------
-    # string                domain_id     The ID for a given domain.
+    # string                domain_id     The ID for a given Domain.
     #*************************************************************************************
     def get_domain(self, domain_id):
+        """Allows users to retrieve a custom Domain that has been registered 
+        with Unbounce.
+
+        Arguments
+        ---------
+        1. account_id {string} -- The ID for a given Unbounce Account.
+        
+        Raises
+        ------
+        None
+
+        Returns
+        -------
+        JSON -- The Response object received from the Unbounce server.
+        """
+
         url = self.DOMAIN_URL_BASE + '/{0}'.format(domain_id)
         # Return the result of the client (Parent) class get() method, pass an appropriate URL.
         return self.client.get(url)
@@ -75,7 +107,7 @@ class Domain(object):
     #
     # Description
     # -----------
-    # This method allows users to retrieve a list of all pages based on the domain.
+    # This method allows users to retrieve a list of all Pages based on the Domain.
     #
     # RETurn
     #  Type                            Description
@@ -85,7 +117,7 @@ class Domain(object):
     # ------------------------------- Arguments ------------------------------------------
     #        Type               Name                         Description
     # ------------------  --------------  ------------------------------------------------
-    # string              domain_id       The ID for a given domain.
+    # string              domain_id       The ID for a given Unbounce Domain.
     # **kwargs (string)   sort_order      Sort by creation date ('asc' or 'desc').
     #                                     Default: 'asc'
     # **kwargs (boolean)  count           When true, don't return the response's collection
@@ -100,6 +132,30 @@ class Domain(object):
     #                                     Maximum: 1000
     #*************************************************************************************
     def get_domain_pages(self, domain_id, **kwargs):
+        """Allows users to retrieve a list of all Pages based on the Domain.
+
+        Arguments
+        ---------
+        1. domain_id {string} -- The ID for a given Unbounce Domain.
+
+        Keyword Arguments
+        -----------------
+        1. sort_order -- Sort by creation date ('asc' or 'desc').
+        2. count -- When true, don't return the response's collection attribute.
+        3. _from -- Limit results to those created after _from.
+        4. to -- Limit results to those created before to.
+        5. offset -- Omit the first offset number of results.
+        6. limit -- Only return limit number of results.
+        
+        Raises
+        ------
+        None
+
+        Returns
+        -------
+        JSON -- The Response object received from the Unbounce server.
+        """
+
         # Initializing a dictionary for potential URL parameters.
         params = {}
         if kwargs:

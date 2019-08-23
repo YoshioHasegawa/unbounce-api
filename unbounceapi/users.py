@@ -7,6 +7,7 @@
 # Revision     Date                        Release Comment
 # --------  ----------  --------------------------------------------------------------
 #   1.0     7/23/2019   Initial Release
+#   1.1     8/23/2019   Including Docstrings for Constructor and Methods.
 #
 # File Description
 # ----------------
@@ -18,12 +19,27 @@
 #    Name                                     Description
 # ----------                  --------------------------------------------------------
 # __init__()                  Constructor
-# get_user()                  Returns current Unbounce user.
+# get_user()                  Returns current Unbounce User.
 #*************************************************************************************
 # Imported Packages:
 import requests
 
 class User(object):
+    """A sub-class to Unbounce that contains routes for User Objects.
+
+    Arguments
+    ---------
+    1. client {class} -- The parent class; Unbounce.
+    
+    Raises
+    ------
+    None
+
+    Returns
+    -------
+    Class -- Instance of User.
+    """
+
     # Initializing static variable for Unbounce User URL base.
     USER_URL_BASE = 'https://api.unbounce.com/users'
 
@@ -51,7 +67,7 @@ class User(object):
     #
     # Description
     # -----------
-    # This method allows users to retrieve details of a given user.
+    # This method allows users to retrieve details of a given Unbounce User.
     #
     # RETurn
     #  Type                            Description
@@ -61,10 +77,25 @@ class User(object):
     # ------------------------------- Arguments ------------------------------------------
     #        Type               Name                         Description
     # --------------------  ------------  ------------------------------------------------
-    # string                user_id       The ID for a given Unbounce user.
+    # string                user_id       The ID for a given Unbounce User.
     #                                     Default: None (results in self)
     #*************************************************************************************
     def get_user(self, user_id=None):
+        """Allows users to retrieve details of a given Unbounce User.
+
+        Arguments
+        ---------
+        1. user_id {string} -- The ID for a given Unbounce User.
+
+        Raises
+        ------
+        None
+
+        Returns
+        -------
+        JSON -- The Response object received from the Unbounce server.
+        """
+
         if user_id == None:
             url = self.USER_URL_BASE + '/self'
             # Return the result of the client (Parent) class get() method, pass an appropriate URL.

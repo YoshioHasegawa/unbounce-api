@@ -7,6 +7,7 @@
 # Revision     Date                        Release Comment
 # --------  ----------  --------------------------------------------------------------
 #   1.0     7/23/2019   Initial Release
+#   1.1     8/23/2019   Including Docstrings for Constructor and Methods.
 #
 # File Description
 # ----------------
@@ -18,13 +19,28 @@
 #    Name                                     Description
 # ----------                          ------------------------------------------------
 # __init__()                          Constructor
-# get_page_group_pages()              Returns pages belonging to a given Unbounce page
-#                                     group.
+# get_page_group_pages()              Returns Pages belonging to a given Unbounce Page
+#                                     Group.
 #*************************************************************************************
 # Imported Packages:
 import requests
 
 class Page_Group(object):
+    """A sub-class to Unbounce that contains routes for Page Group Objects.
+
+    Arguments
+    ---------
+    1. client {class} -- The parent class; Unbounce.
+    
+    Raises
+    ------
+    None
+
+    Returns
+    -------
+    Class -- Instance of Page_Group.
+    """
+    
     # Initializing static variable for Unbounce Page Group URL base.
     PAGE_GROUP_URL_BASE = 'https://api.unbounce.com/page_groups'
 
@@ -52,8 +68,8 @@ class Page_Group(object):
     #
     # Description
     # -----------
-    # This method allows users to retrieve a list of all pages that belong to a given page
-    # group.
+    # This method allows users to retrieve a list of all Pages that belong to a given Page
+    # Group.
     #
     # RETurn
     #  Type                            Description
@@ -63,7 +79,7 @@ class Page_Group(object):
     # ------------------------------- Arguments ------------------------------------------
     #        Type               Name                         Description
     # --------------------  ------------  ------------------------------------------------
-    # string                page_id       The ID for a given Unbounce page.
+    # string                page_id       The ID for a given Unbounce Page.
     #                                     Default: None
     # **kwargs (string)     sort_order    Sort by creation date ('asc' or 'desc').
     #                                     Default: 'asc'
@@ -78,6 +94,31 @@ class Page_Group(object):
     #                                     Maximum: 1000
     #*************************************************************************************
     def get_page_group_pages(self, page_group_id, **kwargs):
+        """Allows users to retrieve a list of all Pages that belong to a 
+        given Page Group.
+
+        Arguments
+        ---------
+        1. page_id {string} -- The ID for a given Unbounce Page.
+
+        Keyword Arguments
+        -----------------
+        1. sort_order -- Sort by creation date ('asc' or 'desc').
+        2. count -- When true, don't return the response's collection attribute.
+        3. _from -- Limit results to those created after _from.
+        4. to -- Limit results to those created before to.
+        5. offset -- Omit the first offset number of results.
+        6. limit -- Only return limit number of results.
+
+        Raises
+        ------
+        None
+
+        Returns
+        -------
+        JSON -- The Response object received from the Unbounce server.
+        """
+
         # Initializing a dictionary for potential URL parameters.
         params = {}
         if kwargs:

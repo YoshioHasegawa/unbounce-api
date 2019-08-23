@@ -7,10 +7,11 @@
 # Revision     Date                        Release Comment
 # --------  ----------  --------------------------------------------------------------
 #   1.0     7/23/2019   Initial Release
+#   1.1     8/23/2019   Including Docstrings for Constructor and Methods.
 #
 # File Description
 # ----------------
-# Contains API routes for querying and manipulating pages.
+# Contains API routes for querying and manipulating Pages.
 # https://developer.unbounce.com/api_reference/#id_pages
 #
 # Class Methods
@@ -18,19 +19,34 @@
 #    Name                                     Description
 # ----------                          ------------------------------------------------
 # __init__()                          Constructor
-# get_pages()                         Returns one or more Unbounce pages.
-# get_form_fields()                   Returns form fields for a given Unbounce page.
-# get_page_leads()                    Returns leads for a given Unboune page.
-# create_page_lead()                  Creates a lead under a given Unbounce page.
-# delete_page_lead()                  Deletes a lead under a given Unbounce page.
-# lead_deletion_request()             Creates a request to delete one or more leads
-#                                     for a given Unbounce page.
+# get_pages()                         Returns one or more Unbounce Pages.
+# get_form_fields()                   Returns form fields for a given Unbounce Page.
+# get_page_leads()                    Returns Leads for a given Unboune Page.
+# create_page_lead()                  Creates a Lead under a given Unbounce Page.
+# delete_page_lead()                  Deletes a Lead under a given Unbounce Page.
+# lead_deletion_request()             Creates a request to delete one or more Leads
+#                                     for a given Unbounce Page.
 # get_lead_deletion_request_status()  Returns the status of a given deletion request.
 #*************************************************************************************
 # Imported Packages:
 import requests
 
 class Page(object):
+    """A sub-class to Unbounce that contains routes for Page Objects.
+
+    Arguments
+    ---------
+    1. client {class} -- The parent class; Unbounce.
+    
+    Raises
+    ------
+    None
+
+    Returns
+    -------
+    Class -- Instance of Page.
+    """
+
     # Initializing static variable for Unbounce Page URL base.
     PAGE_URL_BASE = 'https://api.unbounce.com/pages'
 
@@ -58,8 +74,8 @@ class Page(object):
     #
     # Description
     # -----------
-    # This method allows users to retrieve a list of all pages. User may explicitly
-    # specify page_id in order to retrieve details of a single page.
+    # This method allows users to retrieve a list of all Pages. User may explicitly
+    # specify page_id in order to retrieve details of a single Page.
     #
     # RETurn
     #  Type                            Description
@@ -69,7 +85,7 @@ class Page(object):
     # ------------------------------- Arguments ------------------------------------------
     #        Type               Name                         Description
     # --------------------  ------------  ------------------------------------------------
-    # string                page_id       The ID for a given Unbounce page.
+    # string                page_id       The ID for a given Unbounce Page.
     #                                     Default: None
     # **kwargs (string)     sort_order    Sort by creation date ('asc' or 'desc').
     #                                     Default: 'asc'
@@ -83,12 +99,38 @@ class Page(object):
     # **kwargs (integer)    limit         Only return limit number of results (ex: 100).
     #                                     Default: 50
     #                                     Maximum: 1000
-    # **kwargs (boolean)    with_stats    When true, include page stats for the collection
+    # **kwargs (boolean)    with_stats    When true, include Page stats for the collection
     #                                     (ex: 'True').
-    # **kwargs (string)     role          Restricts the scope of the returned pages
+    # **kwargs (string)     role          Restricts the scope of the returned Pages
     #                                     ('author' or 'viewer').
     #*************************************************************************************
     def get_pages(self, page_id=None, **kwargs):
+        """Allows users to retrieve Unbounce Page collections.
+
+        Arguments
+        ---------
+        1. page_id {string} -- The ID for a given Unbounce Page.
+
+        Keyword Arguments
+        -----------------
+        1. sort_order -- Sort by creation date ('asc' or 'desc').
+        2. count -- When true, don't return the response's collection attribute.
+        3. _from -- Limit results to those created after _from.
+        4. to -- Limit results to those created before to.
+        5. offset -- Omit the first offset number of results.
+        6. limit -- Only return limit number of results.
+        7. with_stats -- When true, include Page stats for the collection.
+        8. role -- Only return limit number of results.
+        
+        Raises
+        ------
+        None
+
+        Returns
+        -------
+        JSON -- The Response object received from the Unbounce server.
+        """
+
         # Initializing a dictionary for potential URL parameters.
         params = {}
         if kwargs:
@@ -109,8 +151,8 @@ class Page(object):
     #
     # Description
     # -----------
-    # This method allows users to retrieve a full list of all form fields across all page
-    # variants of a specific page.
+    # This method allows users to retrieve a full list of all form fields across all Page
+    # variants of a specific Page.
     #
     # RETurn
     #  Type                            Description
@@ -120,15 +162,37 @@ class Page(object):
     # ------------------------------- Arguments ------------------------------------------
     #        Type                 Name                       Description
     # --------------------  -----------------  -------------------------------------------
-    # string                page_id            The ID for a given Unbounce page.
+    # string                page_id            The ID for a given Unbounce Page.
     # **kwargs (string)     sort_order         Sort by creation date ('asc' or 'desc').
     #                                          Default: 'asc'
     # **kwargs (boolean)    count              When true, don't return the response's
     #                                          collection attribute (ex: 'True').
-    # **kwargs (boolean)    include_sub_pages  When true, include sub page form fields
+    # **kwargs (boolean)    include_sub_pages  When true, include Sub Page form fields
     #                                          in the response (ex: 'True').
     #*************************************************************************************
     def get_form_fields(self, page_id, **kwargs):
+        """Allows users to retrieve a full list of all form fields across all
+        Page variants of a specific Page.
+
+        Arguments
+        ---------
+        1. page_id {string} -- The ID for a given Unbounce Page.
+
+        Keyword Arguments
+        -----------------
+        1. sort_order -- Sort by creation date ('asc' or 'desc').
+        2. count -- When true, don't return the response's collection attribute.
+        3. include_sub_pages -- When true, include Sub Page form fields in the response.
+        
+        Raises
+        ------
+        None
+
+        Returns
+        -------
+        JSON -- The Response object received from the Unbounce server.
+        """
+
         # Initializing a dictionary for potential URL parameters.
         params = {}
         if kwargs:
@@ -142,8 +206,8 @@ class Page(object):
     #
     # Description
     # -----------
-    # This method allows users to retrieve a list of all leads for a given page. Users may
-    # explicitly specify page_id AND lead_id in order to retrieve details of a single lead.
+    # This method allows users to retrieve a list of all Leads for a given Page. Users may
+    # explicitly specify page_id AND lead_id in order to retrieve details of a single Lead.
     #
     # RETurn
     #  Type                            Description
@@ -153,8 +217,8 @@ class Page(object):
     # ------------------------------- Arguments ------------------------------------------
     #        Type               Name                         Description
     # --------------------  ------------  ------------------------------------------------
-    # string                page_id       The ID for a given Unbounce page.
-    # string                lead_id       The ID for a given Unbounce lead.
+    # string                page_id       The ID for a given Unbounce Page.
+    # string                lead_id       The ID for a given Unbounce Lead.
     #                                     Default: None
     # **kwargs (string)     sort_order    Sort by creation date ('asc' or 'desc').
     #                                     Default: 'asc'
@@ -170,6 +234,31 @@ class Page(object):
     #                                     Maximum: 1000
     #*************************************************************************************
     def get_page_leads(self, page_id, lead_id=None, **kwargs):
+        """Allows users to retrieve a list of all Leads for a given Page.
+
+        Arguments
+        ---------
+        1. page_id {string} -- The ID for a given Unbounce Page.
+        2. lead_id {string} -- The ID for a given Unbounce Lead.
+
+        Keyword Arguments
+        -----------------
+        1. sort_order -- Sort by creation date ('asc' or 'desc').
+        2. count -- When true, don't return the response's collection attribute.
+        3. _from -- Limit results to those created after _from.
+        4. to -- Limit results to those created before to.
+        5. offset -- Omit the first offset number of results.
+        6. limit -- Only return limit number of results.
+        
+        Raises
+        ------
+        None
+
+        Returns
+        -------
+        JSON -- The Response object received from the Unbounce server.
+        """
+
         # Initializing a dictionary for potential URL parameters.
         params = {}
         if kwargs:
@@ -190,7 +279,7 @@ class Page(object):
     #
     # Description
     # -----------
-    # This method allows users to create a new lead. New leads created via the API are
+    # This method allows users to create a new Lead. New Leads created via the API are
     # marked distinctly from those created through the webapp. Leads created via the API
     # will have a new attribute in their extra_data field: {'created_by': 'api'}
     #
@@ -202,9 +291,24 @@ class Page(object):
     # ------------------------------- Arguments ------------------------------------------
     #        Type               Name                         Description
     # --------------------  ------------  ------------------------------------------------
-    # string                page_id       The ID for a given Unbounce page.
+    # string                page_id       The ID for a given Unbounce Page.
     #*************************************************************************************
     def create_page_lead(self, page_id):
+        """Allows users to create a new Lead.
+
+        Arguments
+        ---------
+        1. page_id {string} -- The ID for a given Unbounce Page.
+        
+        Raises
+        ------
+        None
+
+        Returns
+        -------
+        JSON -- The Response object received from the Unbounce server.
+        """
+
         url = self.PAGE_URL_BASE + '/{0}/leads/'.format(page_id)
         # Return the result of the client (Parent) class post() method, pass an appropriate URL.
         return self.client.post(url)
@@ -214,7 +318,7 @@ class Page(object):
     #
     # Description
     # -----------
-    # This method allows users to delete a single Lead. Only available to the account
+    # This method allows users to delete a single Lead. Only available to the Account
     # owner.
     #
     # RETurn
@@ -225,10 +329,26 @@ class Page(object):
     # ------------------------------- Arguments ------------------------------------------
     #        Type               Name                         Description
     # --------------------  ------------  ------------------------------------------------
-    # string                page_id       The ID for a given Unbounce page.
-    # string                lead_id       The ID for a given Unbounce lead.
+    # string                page_id       The ID for a given Unbounce Page.
+    # string                lead_id       The ID for a given Unbounce Lead.
     #*************************************************************************************
     def delete_page_lead(self, page_id, lead_id):
+        """Allows users to delete a single Lead.
+
+        Arguments
+        ---------
+        1. page_id {string} -- The ID for a given Unbounce Page.
+        2. lead_id {string} -- The ID for a given Unbounce Lead.
+        
+        Raises
+        ------
+        None
+
+        Returns
+        -------
+        JSON -- The Response object received from the Unbounce server.
+        """
+
         url = self.PAGE_URL_BASE + '/{0}/leads/{1}'.format(page_id, lead_id)
         # Return the result of the client (Parent) class delete() method, pass an appropriate URL.
         return self.client.delete(url)
@@ -239,9 +359,9 @@ class Page(object):
     # Description
     # -----------
     # This method allows users to create a request to asynchronously delete one or more
-    # leads for a given page. To check the status of the request, perform a GET request
+    # Leads for a given Page. To check the status of the request, perform a GET request
     # using the response body's metadata.location. This endpoint is only available to the
-    # account owner. Deleted leads cannot be recovered.
+    # Account owner. Deleted Leads cannot be recovered.
     #
     # RETurn
     #  Type                            Description
@@ -251,9 +371,25 @@ class Page(object):
     # ------------------------------- Arguments ------------------------------------------
     #        Type               Name                         Description
     # --------------------  ------------  ------------------------------------------------
-    # string                page_id       The ID for a given Unbounce page.
+    # string                page_id       The ID for a given Unbounce Page.
     #*************************************************************************************
     def post_lead_deletion_request(self, page_id):
+        """Allows users to create a request to asynchronously delete one or
+        more Leads for a given Page.
+
+        Arguments
+        ---------
+        1. page_id {string} -- The ID for a given Unbounce Page.
+        
+        Raises
+        ------
+        None
+
+        Returns
+        -------
+        JSON -- The Response object received from the Unbounce server.
+        """
+
         url = self.PAGE_URL_BASE + '/{0}/lead_deletion_request'.format(page_id)
         # Return the result of the client (Parent) class post() method, pass an appropriate URL.
         return self.client.post(url)
@@ -274,10 +410,26 @@ class Page(object):
     # ------------------------------- Arguments ------------------------------------------
     #   Type               Name                         Description
     # ---------  -------------------------  ----------------------------------------------
-    # string     page_id                    The ID for a given Unbounce page.
-    # string     lead_deletion_request_id   The ID for a given lead deletion request.
+    # string     page_id                    The ID for a given Unbounce Page.
+    # string     lead_deletion_request_id   The ID for a given Lead Deletion Request.
     #*************************************************************************************
     def get_lead_deletion_request_status(self, page_id, lead_deletion_request_id):
+        """Allows users to retrieve the status of a Lead Deletion Request.
+
+        Arguments
+        ---------
+        1. page_id {string} -- The ID for a given Unbounce Page.
+        2. lead_deletion_request_id {string} -- The ID for a given Lead Deletion Request.
+        
+        Raises
+        ------
+        None
+
+        Returns
+        -------
+        JSON -- The Response object received from the Unbounce server.
+        """
+
         url = self.PAGE_URL_BASE + '/{0}/lead_deletion_request/{1}'.format(page_id, lead_deletion_request_id)
         # Return the result of the client (Parent) class get() method, pass an appropriate URL.
         return self.client.get(url)
