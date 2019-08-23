@@ -58,49 +58,39 @@ UNBOUNCE_SERVER_ERROR_MESSAGE = 'Server Error: Something went wrong on Unbounce\
 
 class Unbounce(object):
     """
+    -----------
     Description
     -----------
     This object establishes a connection to the Unbounce Server with
     a given API Access Key. This API wrapper contains basic resource 
     methods (GET/PUT/POST/DELETE).
-    \
-    \
+    ---------
     Arguments
     ---------
     1. api_key {string} -- Unbounce API Access Key.
-    \
     2. timeout_limit {integer} -- The timeout limit (in seconds) for a 
     given get request.
-    \
-    \
+    ------
     Raises
     ------
     1. requests.HTTPError: Bad Request: The request could not be 
     understood, possible syntax malformation.
-    \
     2. requests.ConnectionError: Unauthorized Request: The request 
     requires user authentication. API Key or Access Token is missing.
-    \
     3. requests.ConnectionError: Forbidden Access: The API Key is 
     forbidden to access the resource, or the Access Token is bad or 
     has expired.
-    \
     4. requests.HTTPError: Not Found: The server has not found 
     anything matching the request-uri.
-    \
     5. requests.HTTPError: Version Conflict: The request could not 
     be completed due to a conflict with the current state of the 
     resource.
-    \
     6. requests.HTTPError: Too Many Requests: Too many requests in 
     a given amount of time.
-    \
     7. requests.HTTPError: Server Error: Something went wrong on 
     Unbounce\'s end.
-    \
     8. requests.HTTPError: Unknown Error.
-    \
-    \
+    -------
     Returns
     -------
     None
