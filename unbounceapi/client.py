@@ -58,15 +58,16 @@ UNBOUNCE_SERVER_ERROR_MESSAGE = 'Server Error: Something went wrong on Unbounce\
 
 class Unbounce(object):
     '''
-    This object establishes a connection to the Unbounce Server with a given API Access
-    Key. This API wrapper contains basic resource methods (GET/PUT/POST/DELETE).
+    This object establishes a connection to the Unbounce Server with 
+    a given API Access Key. This API wrapper contains basic resource
+    methods (GET/PUT/POST/DELETE).
 
-    ------------------------------- Arguments ------------------------------------------
-          Type               Name                         Description
-    --------------------  ------------   -----------------------------------------------
-    string                api_key        Unbounce API Access Key.
-    int                   timeout_limit  The timeout limit (in seconds) for a given get 
-                                         request.
+    ------------------------ Arguments -----------------------------
+       Type         Name                    Description
+    ----------  ------------   -------------------------------------
+    string      api_key        Unbounce API Access Key.
+    int         timeout_limit  The timeout limit (in seconds) for a 
+                               given get request.
     '''
 
     # Initializing static variables providing version and content information.
