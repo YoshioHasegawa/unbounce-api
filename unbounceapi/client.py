@@ -64,12 +64,14 @@ class Unbounce(object):
     This object establishes a connection to the Unbounce Server with
     a given API Access Key. This API wrapper contains basic resource 
     methods (GET/PUT/POST/DELETE).
+
     ---------
     Arguments
     ---------
     1. api_key {string} -- Unbounce API Access Key.
     2. timeout_limit {integer} -- The timeout limit (in seconds) for a 
     given get request.
+
     ------
     Raises
     ------
@@ -90,6 +92,7 @@ class Unbounce(object):
     7. requests.HTTPError: Server Error: Something went wrong on 
     Unbounce\'s end.
     8. requests.HTTPError: Unknown Error.
+    
     -------
     Returns
     -------
