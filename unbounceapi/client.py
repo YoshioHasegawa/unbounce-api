@@ -87,7 +87,7 @@ class Unbounce(object):
     CONTENT_TYPE = 'application/json'
 
     #**************************************************************************************
-    # Constructor: __init__(self, library)
+    # Constructor: __init__(self, String, Integer)
     #
     # Description
     # -----------
