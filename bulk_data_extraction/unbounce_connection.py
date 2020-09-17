@@ -6,10 +6,10 @@
 #
 # Revision      Date                            Release Comment
 # --------   ----------   ------------------------------------------------------------
-#   1.0      8/9/2019     Initial Release
+#   1.0      08/09/2019   Initial Release
 #
 # File Description
-# ----------------
+# ------------------------------------------------------------------------------------
 # This Python class is a wrapper for the unbounceapi package and, contains methods for
 # simple querying of bulk data from the Unbounce server. The only 2 extractable
 # objects are Pages and Leads via the bulk_extract() method. The return value for
@@ -17,23 +17,29 @@
 # further details.
 #
 # Class Methods
-# -------------
+# ------------------------------------------------------------------------------------
 #         Name                                      Description
 # --------------------         -------------------------------------------------------
 # __init__()                   The constructor used to instantiate this class.
+#
 # bulk_get_pages()             The method that interacts with the unbounceapi wrapper
 #                              to retrive and return Page objects as lists of JSON
 #                              objects.
+#
 # bulk_get_leads()             The method that interacts with the unbounceapi wrapper
 #                              to retrive and return Lead objects as lists of JSON
 #                              objects.
+#
 # process_date_range()         The method that checks and processes any date filters.
+#
 # process_bulk_pages()         The method that checks and processes all Page filters
 #                              applied to the bulk_extract() method. This method also
 #                              initiates the call to the bulk_get_pages() method.
+#
 # process_bulk_leads()         The method that checks and processes all Lead filters
 #                              applied to the bulk_extract() method. This method also
 #                              initiates the call to the bulk_get_leads() method.
+#
 # bulk_extract()               The method used to initiate any bulk extract for
 #                              Page and/or Lead objects from the Unbounce server.
 #*************************************************************************************
@@ -43,8 +49,11 @@
 # Unbounce            An API wrapper for the Unbounce server. Installation of this
 #                     library is required. Enter the following command from the
 #                     command line: 'pip install unbounce-python-api'
+#
 # pandas              A package containing data structures and data analysis tools.
+#
 # datetime            A package imported for manipulating date data type variables.
+#
 # time                A package used for stalling methods that have the potential for
 #                     reaching Unbounce API limitations.
 #*************************************************************************************
@@ -60,7 +69,7 @@ class UnbounceConnection():
     # Constructor: __init__(self)
     #
     # Description
-    # -----------
+    # ------------------------------------------------------------------------------------
     # This constructor instantiates the Unbounce API wrapper. This wrapper contains API
     # routes for easy retrieval and manipulation of data within the Unbounce server.
     #
@@ -97,7 +106,7 @@ class UnbounceConnection():
     #                        string=None)
     #
     # Description
-    # -----------
+    # ------------------------------------------------------------------------------------
     # This method makes the calls to the Unbounce API wrapper in order to retrieve Page
     # objects from the Unbounce server. Specifically, this method makes an initial call
     # to retrieve Page objects. Then, continues to make further calls to retrive potential
@@ -242,7 +251,7 @@ class UnbounceConnection():
     # Method: bulk_get_leads(self, string=None, string=None, list=None, list=None)
     #
     # Description
-    # -----------
+    # ------------------------------------------------------------------------------------
     # This method makes the calls to the Unbounce API wrapper in order to retrieve Lead
     # objects from the Unbounce server. Specifically, this method makes an initial call
     # to retrieve all Page object's IDs. This is required due to Lead objects only being
@@ -415,7 +424,7 @@ class UnbounceConnection():
     # Method: process_date_range(self, dictionary)
     #
     # Description
-    # -----------
+    # ------------------------------------------------------------------------------------
     # This method is called when the user applies any date filter to the bulk_extract()
     # method. The date range dictionary, which is the value for the 'created_at' key
     # found wihin the filters dictionary passed to the bulk_extract() method, is the
@@ -509,7 +518,7 @@ class UnbounceConnection():
     # Method: process_bulk_pages(self, dictionary={})
     #
     # Description
-    # -----------
+    # ------------------------------------------------------------------------------------
     # This method checks and processes all Page object filters. Specifically, all filter
     # keys and values are checked for correct spelling, data types and, other
     # inaccuracies. The date filter is passed to process_date_range() to be processed.
@@ -635,7 +644,7 @@ class UnbounceConnection():
     # Method: process_bulk_leads(self, dictionary={})
     #
     # Description
-    # -----------
+    # ------------------------------------------------------------------------------------
     # This method checks and processes all Lead object filters. Specifically, all filter
     # keys and values are checked for correct spelling, data types and, other
     # inaccuracies. The date filter is passed to process_date_range() to be processed.
@@ -744,7 +753,7 @@ class UnbounceConnection():
     # Method: bulk_extract(self, string, dictionary={})
     #
     # Description
-    # -----------
+    # ------------------------------------------------------------------------------------
     # This method is the only method needed by the user to extract bulk Page or Lead
     # objects from the Unbounce server. The desired object type and associated filters
     # should be passed to this method. Calling this method will allow for the appropriate
