@@ -6,22 +6,26 @@
 #
 # Revision     Date                        Release Comment
 # --------  ----------  --------------------------------------------------------------
-#   1.0     7/23/2019   Initial Release
-#   1.1     8/23/2019   Including Docstrings for Constructor and Methods.
+#   1.0     07/23/2019   Initial Release
+#   1.1     08/23/2019   Including Docstrings for Constructor and Methods.
 #
 # File Description
-# ----------------
+# ------------------------------------------------------------------------------------
 # Contains API routes for querying Sub-Accounts.
 # https://developer.unbounce.com/api_reference/#id_sub_accounts__sub_account_id_
 #
 # Class Methods
-# -------------
+# ------------------------------------------------------------------------------------
 #    Name                                     Description
 # ----------                  --------------------------------------------------------
 # __init__()                  Constructor
+#
 # get_sub_account()           Returns details of a single Unbounce Sub-Account.
+#
 # get_sub_account_domains     Returns a Sub-Account's Domains.
+#
 # get_sub_account_page_groups Returns a Sub-Account's Page Groups.
+#
 # get_sub_account_pages       Returns a Sub-Account's Pages.
 #*************************************************************************************
 # Imported Packages:
@@ -69,7 +73,7 @@ class Sub_Account(object):
     # Method: get_sub_account(self, string)
     #
     # Description
-    # -----------
+    # ------------------------------------------------------------------------------------
     # This method allows users to retrieve the details of a single Sub-Account.
     #
     # RETurn
@@ -106,7 +110,7 @@ class Sub_Account(object):
     # Method: get_sub_account_domains(self, string, **kwargs)
     #
     # Description
-    # -----------
+    # ------------------------------------------------------------------------------------
     # This method allows users to retrieve a list of all custom Domains belonging to
     # a given Sub-Account.
     #
@@ -119,15 +123,21 @@ class Sub_Account(object):
     #        Type               Name                         Description
     # ------------------  --------------  ------------------------------------------------
     # string              sub_account_id  The ID for a given Sub-Account.
+    #
     # **kwargs (string)   sort_order      Sort by creation date ('asc' or 'desc').
     #                                     Default: 'asc'
+    #
     # **kwargs (boolean)  count           When true, don't return the response's collection
     #                                     attribute (ex: 'True').
+    #
     # **kwargs (string)   _from           Limit results to those created after _from
     #                                     (ex: '2014-12-31T00:00:00.000Z').
+    #
     # **kwargs (string)   to              Limit results to those created before to
     #                                     (ex: '2014-12-31T23:59:59.999Z').
+    #
     # **kwargs (integer)  offset          Omit the first offset number of results (ex: 3).
+    #
     # **kwargs (integer)  limit           Only return limit number of results (ex: 100).
     #                                     Default: 50
     #                                     Maximum: 1000
@@ -172,7 +182,7 @@ class Sub_Account(object):
     # Method: get_sub_account_page_groups(self, string, **kwargs)
     #
     # Description
-    # -----------
+    # ------------------------------------------------------------------------------------
     # This method allows users to retrieve a list of all Page Groups for a given
     # Sub-Account.
     #
@@ -185,15 +195,21 @@ class Sub_Account(object):
     #        Type               Name                         Description
     # ------------------  --------------  ------------------------------------------------
     # string              sub_account_id  The ID for a given Sub-Account.
+    #
     # **kwargs (string)   sort_order      Sort by creation date ('asc' or 'desc').
     #                                     Default: 'asc'
+    #
     # **kwargs (boolean)  count           When true, don't return the response's collection
     #                                     attribute (ex: 'True').
+    #
     # **kwargs (string)   _from           Limit results to those created after _from
     #                                     (ex: '2014-12-31T00:00:00.000Z').
+    #
     # **kwargs (string)   to              Limit results to those created before to
     #                                     (ex: '2014-12-31T23:59:59.999Z').
+    #
     # **kwargs (integer)  offset          Omit the first offset number of results (ex: 3).
+    #
     # **kwargs (integer)  limit           Only return limit number of results (ex: 100).
     #                                     Default: 50
     #                                     Maximum: 1000
@@ -238,7 +254,7 @@ class Sub_Account(object):
     # Method: get_sub_account_pages(self, string, **kwargs)
     #
     # Description
-    # -----------
+    # ------------------------------------------------------------------------------------
     # This method allows users to retrieve a list of all Pages for a given Sub-Account.
     #
     # RETurn
@@ -250,15 +266,21 @@ class Sub_Account(object):
     #        Type               Name                         Description
     # ------------------  --------------  ------------------------------------------------
     # string              sub_account_id  The ID for a given Sub-Account.
+    #
     # **kwargs (string)   sort_order      Sort by creation date ('asc' or 'desc').
     #                                     Default: 'asc'
+    #
     # **kwargs (boolean)  count           When true, don't return the response's collection
     #                                     attribute (ex: 'True').
+    #
     # **kwargs (string)   _from           Limit results to those created after _from
     #                                     (ex: '2014-12-31T00:00:00.000Z').
+    #
     # **kwargs (string)   to              Limit results to those created before to
     #                                     (ex: '2014-12-31T23:59:59.999Z').
+    #
     # **kwargs (integer)  offset          Omit the first offset number of results (ex: 3).
+    #
     # **kwargs (integer)  limit           Only return limit number of results (ex: 100).
     #                                     Default: 50
     #                                     Maximum: 1000

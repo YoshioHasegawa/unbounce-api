@@ -6,19 +6,20 @@
 #
 # Revision     Date                        Release Comment
 # --------  ----------  --------------------------------------------------------------
-#   1.0     7/23/2019   Initial Release
-#   1.1     8/23/2019   Including Docstrings for Constructor and Methods.
+#   1.0     07/23/2019   Initial Release
+#   1.1     08/23/2019   Including Docstrings for Constructor and Methods.
 #
 # File Description
-# ----------------
+# ------------------------------------------------------------------------------------
 # Contains API routes for querying Page Groups.
 # https://developer.unbounce.com/api_reference/#id_page_groups__page_group_id__pages
 #
 # Class Methods
-# -------------
+# ------------------------------------------------------------------------------------
 #    Name                                     Description
 # ----------                          ------------------------------------------------
 # __init__()                          Constructor
+#
 # get_page_group_pages()              Returns Pages belonging to a given Unbounce Page
 #                                     Group.
 #*************************************************************************************
@@ -48,7 +49,7 @@ class Page_Group(object):
     # Constructor: __init__(self, library)
     #
     # Description
-    # -----------
+    # ------------------------------------------------------------------------------------
     # This constructor takes the client class as a parameter in order to gain access to
     # it's variables and methods.
     #
@@ -67,7 +68,7 @@ class Page_Group(object):
     # Method: get_page_group_pages(self, string, **kwargs)
     #
     # Description
-    # -----------
+    # ------------------------------------------------------------------------------------
     # This method allows users to retrieve a list of all Pages that belong to a given Page
     # Group.
     #
@@ -81,14 +82,20 @@ class Page_Group(object):
     # --------------------  ------------  ------------------------------------------------
     # string                page_id       The ID for a given Unbounce Page.
     #                                     Default: None
+    #
     # **kwargs (string)     sort_order    Sort by creation date ('asc' or 'desc').
     #                                     Default: 'asc'
+    #
     # **kwargs (boolean)    count         When true, don't return the response's collection
     #                                     attribute (ex: 'True').
+    #
     # **kwargs (string)     _from         Limit results to those created after _from
     #                                     (ex: '2014-12-31T00:00:00.000Z').
+    #
     # **kwargs (string)     to            Limit results to those created before to
+    #
     # **kwargs (integer)    offset        Omit the first offset number of results (ex: 3).
+    #
     # **kwargs (integer)    limit         Only return limit number of results (ex: 100).
     #                                     Default: 50
     #                                     Maximum: 1000

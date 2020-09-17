@@ -6,19 +6,20 @@
 #
 # Revision     Date                        Release Comment
 # --------  ----------  --------------------------------------------------------------
-#   1.0     7/23/2019   Initial Release
-#   1.1     8/23/2019   Including Docstrings for Constructor and Methods.
+#   1.0     07/23/2019   Initial Release
+#   1.1     08/23/2019   Including Docstrings for Constructor and Methods.
 #
 # File Description
-# ----------------
+# ------------------------------------------------------------------------------------
 # Contains API routes for querying current User.
 # https://developer.unbounce.com/api_reference/#id_users
 #
 # Class Methods
-# -------------
+# ------------------------------------------------------------------------------------
 #    Name                                     Description
 # ----------                  --------------------------------------------------------
 # __init__()                  Constructor
+#
 # get_user()                  Returns current Unbounce User.
 #*************************************************************************************
 # Imported Packages:
@@ -47,7 +48,7 @@ class User(object):
     # Constructor: __init__(self, library)
     #
     # Description
-    # -----------
+    # ------------------------------------------------------------------------------------
     # This constructor takes the client class as a parameter in order to gain access to
     # it's variables and methods.
     #
@@ -66,7 +67,7 @@ class User(object):
     # Method: get_user(self, string)
     #
     # Description
-    # -----------
+    # ------------------------------------------------------------------------------------
     # This method allows users to retrieve details of a given Unbounce User.
     #
     # RETurn

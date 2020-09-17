@@ -4,28 +4,33 @@
 # Class Name: Unbounce
 # Super Class: None
 #
-# Revision     Date                        Release Comment
-# --------  ----------  --------------------------------------------------------------
-#   1.0     7/23/2019   Initial Release
-#   1.1     8/23/2019   Including Docstrings for Constructor and Methods.
+# Revision      Date                            Release Comment
+# --------   ----------   ------------------------------------------------------------
+#   1.0      07/23/2019   Initial Release
+#   1.1      08/23/2019   Including Docstrings for Constructor and Methods.
 #
 # File Description
-# ----------------
+# ------------------------------------------------------------------------------------
 # Contains API routes for querying and manipulating Unbounce objects.
 # https://developer.unbounce.com/api_reference/
 #
 # Class Methods
-# -------------
-#       Name                                         Description
-# ------------------                  ------------------------------------------------
-# __init__()                          Constructor
-# post()                              Submits data to be processed to the Unbounce
-#                                     server.
-# get()                               Requests data from the Unbounce server.
-# get_global()                        Requests global API meta-information.
-# delete()                            Deletes data from the Unbounce server.
-# _parsed_response()                  Parses Response objects and returns the
-#                                     appropriate JSON/message.
+# ------------------------------------------------------------------------------------
+#         Name                                      Description
+# --------------------         -------------------------------------------------------
+# __init__()                   Constructor
+#
+# post()                       Submits data to be processed to the Unbounce
+#                              server.
+#
+# get()                        Requests data from the Unbounce server.
+#
+# get_global()                 Requests global API meta-information.
+#
+# delete()                     Deletes data from the Unbounce server.
+#
+# _parsed_response()           Parses Response objects and returns the
+#                              appropriate JSON/message.
 #*************************************************************************************
 # Imported Packages/Variables:
 import requests
@@ -90,7 +95,7 @@ class Unbounce(object):
     # Constructor: __init__(self, String, Integer)
     #
     # Description
-    # -----------
+    # ------------------------------------------------------------------------------------
     # This constructor takes an API KEY and instantiates all sub-classes representing all
     # appropriate Unbounce objects.
     #
@@ -120,7 +125,7 @@ class Unbounce(object):
     # Method: post(self, string)
     #
     # Description
-    # -----------
+    # ------------------------------------------------------------------------------------
     # This method is accessed by all child classes and, enables the ability to enqueue 
     # data to the Unbounce server.
     #
@@ -139,7 +144,7 @@ class Unbounce(object):
 
         Arguments
         ---------
-        1. url {string} -- The Unbound URL to communicate with.
+        1. url {string} -- The Unbounce URL to communicate with.
         
         Raises
         ------
@@ -157,7 +162,7 @@ class Unbounce(object):
     # Method: get(self, string)
     #
     # Description
-    # -----------
+    # ------------------------------------------------------------------------------------
     # This method is accessed by all child classes and, enables the ability to request
     # data from the Unbounce server. The request timeout limit is 600 seconds (10 mins).
     #
@@ -177,7 +182,7 @@ class Unbounce(object):
 
         Arguments
         ---------
-        1. url {string} -- The Unbound URL to communicate with.
+        1. url {string} -- The Unbounce URL to communicate with.
         
         Raises
         ------
@@ -196,7 +201,7 @@ class Unbounce(object):
     # Method: get_global(self)
     #
     # Description
-    # -----------
+    # ------------------------------------------------------------------------------------
     # This method allows users to retrieve the global API meta-information.
     #
     # RETurn
@@ -231,7 +236,7 @@ class Unbounce(object):
     # Method: delete(self, string)
     #
     # Description
-    # -----------
+    # ------------------------------------------------------------------------------------
     # This method is accessed by all child classes and, enables the ability to delete
     # data from the Unbounce server.
     #
@@ -250,7 +255,7 @@ class Unbounce(object):
 
         Arguments
         ---------
-        1. url {string} -- The Unbound URL to communicate with.
+        1. url {string} -- The Unbounce URL to communicate with.
         
         Raises
         ------
@@ -267,7 +272,7 @@ class Unbounce(object):
     # Method: __parsed_response(self, Response)
     #
     # Description
-    # -----------
+    # ------------------------------------------------------------------------------------
     # This method takes a Response object and, returns the Response body as a JSON object.
     # Depending on the Response status code, the appropriate message is returned or not
     # returned. If the Response object has a Timeout exception associated with it, an

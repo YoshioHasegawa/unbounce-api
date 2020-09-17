@@ -6,20 +6,22 @@
 #
 # Revision     Date                        Release Comment
 # --------  ----------  --------------------------------------------------------------
-#   1.0     7/23/2019   Initial Release
-#   1.1     8/23/2019   Including Docstrings for Constructor and Methods.
+#   1.0     07/23/2019   Initial Release
+#   1.1     08/23/2019   Including Docstrings for Constructor and Methods.
 #
 # File Description
-# ----------------
+# ------------------------------------------------------------------------------------
 # Contains API routes for querying Domains.
 # https://developer.unbounce.com/api_reference/#id_domains__domain_id_
 #
 # Class Methods
-# -------------
+# ------------------------------------------------------------------------------------
 #    Name                                     Description
 # ----------                  --------------------------------------------------------
 # __init__()                  Constructor
+#
 # get_domain()                Returns a custom Domain registered with Unbounce.
+#
 # get_domain_pages()          Returns a Domain's Pages.
 #*************************************************************************************
 # Imported Packages:
@@ -48,7 +50,7 @@ class Domain(object):
     # Constructor: __init__(self, library)
     #
     # Description
-    # -----------
+    # ------------------------------------------------------------------------------------
     # This constructor takes the client class as a parameter in order to gain access to
     # it's variables and methods.
     #
@@ -67,7 +69,7 @@ class Domain(object):
     # Method: get_domain(self, string)
     #
     # Description
-    # -----------
+    # ------------------------------------------------------------------------------------
     # This method allows users to retrieve a custom Domain that has been registered
     # with Unbounce.
     #
@@ -106,7 +108,7 @@ class Domain(object):
     # Method: get_domain_pages(self, string, **kwargs)
     #
     # Description
-    # -----------
+    # ------------------------------------------------------------------------------------
     # This method allows users to retrieve a list of all Pages based on the Domain.
     #
     # RETurn
@@ -118,15 +120,21 @@ class Domain(object):
     #        Type               Name                         Description
     # ------------------  --------------  ------------------------------------------------
     # string              domain_id       The ID for a given Unbounce Domain.
+    #
     # **kwargs (string)   sort_order      Sort by creation date ('asc' or 'desc').
     #                                     Default: 'asc'
+    #
     # **kwargs (boolean)  count           When true, don't return the response's collection
     #                                     attribute (ex: 'True').
+    #
     # **kwargs (string)   _from           Limit results to those created after _from
     #                                     (ex: '2014-12-31T00:00:00.000Z').
+    #
     # **kwargs (string)   to              Limit results to those created before to
     #                                     (ex: '2014-12-31T23:59:59.999Z').
+    #
     # **kwargs (integer)  offset          Omit the first offset number of results (ex: 3).
+    #
     # **kwargs (integer)  limit           Only return limit number of results (ex: 100).
     #                                     Default: 50
     #                                     Maximum: 1000

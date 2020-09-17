@@ -6,19 +6,20 @@
 #
 # Revision     Date                        Release Comment
 # --------  ----------  --------------------------------------------------------------
-#   1.0     7/23/2019   Initial Release
-#   1.1     8/23/2019   Including Docstrings for Constructor and Methods.
+#   1.0     07/23/2019   Initial Release
+#   1.1     08/23/2019   Including Docstrings for Constructor and Methods.
 #
 # File Description
-# ----------------
+# ------------------------------------------------------------------------------------
 # Contains API routes for querying Leads.
 # https://developer.unbounce.com/api_reference/#id_leads__lead_id_
 #
 # Class Methods
-# -------------
+# ------------------------------------------------------------------------------------
 #    Name                                     Description
 # ----------                  --------------------------------------------------------
 # __init__()                  Constructor
+#
 # get_lead()                  Returns details of a single Unbounce Lead.
 #*************************************************************************************
 # Imported Packages:
@@ -47,7 +48,7 @@ class Lead(object):
     # Constructor: __init__(self, library)
     #
     # Description
-    # -----------
+    # ------------------------------------------------------------------------------------
     # This constructor takes the client class as a parameter in order to gain access to
     # it's variables and methods.
     #
@@ -66,7 +67,7 @@ class Lead(object):
     # Method: get_user(self, string)
     #
     # Description
-    # -----------
+    # ------------------------------------------------------------------------------------
     # This method allows users to retrieve a single Unbounce Lead.
     #
     # RETurn

@@ -6,21 +6,24 @@
 #
 # Revision     Date                        Release Comment
 # --------  ----------  --------------------------------------------------------------
-#   1.0     7/23/2019   Initial Release
-#   1.1     8/23/2019   Including Docstrings for Constructor and Methods.
+#   1.0     07/23/2019   Initial Release
+#   1.1     08/23/2019   Including Docstrings for Constructor and Methods.
 #
 # File Description
-# ----------------
+# ------------------------------------------------------------------------------------
 # Contains API routes for querying and manipulating Accounts.
 # https://developer.unbounce.com/api_reference/#id_accounts
 #
 # Class Methods
-# -------------
+# ------------------------------------------------------------------------------------
 #    Name                                     Description
 # ----------                  --------------------------------------------------------
 # __init__()                  Constructor
+#
 # get_accounts()              Returns Unbounce Accounts.
+#
 # get_sub_accounts()          Returns Unbounce Sub Accounts.
+#
 # get_account_pages()         Returns Unbounce Account Pages.
 #*************************************************************************************
 # Imported Packages:
@@ -49,7 +52,7 @@ class Account(object):
     # Constructor: __init__(self, library)
     #
     # Description
-    # -----------
+    # ------------------------------------------------------------------------------------
     # This constructor takes the client class as a parameter in order to gain access to
     # it's variables and methods.
     #
@@ -68,7 +71,7 @@ class Account(object):
     # Method: get_accounts(self, string, **kwargs)
     #
     # Description
-    # -----------
+    # ------------------------------------------------------------------------------------
     # This method allows users to retrieve the Accounts collection. Users may
     # explicitly specify account_id in order to retrieve details of a single
     # Account.
@@ -83,6 +86,7 @@ class Account(object):
     # --------------------  ------------  ------------------------------------------------
     # string                account_id    The ID for a given Unbounce Account.
     #                                     Default: None
+    #
     # **kwargs (string)     sort_order    Sort by creation date ('asc' or 'desc').
     #                                     Default: 'asc'
     #*************************************************************************************
@@ -123,7 +127,7 @@ class Account(object):
     # Method: get_sub_accounts(self, string, **kwargs)
     #
     # Description
-    # -----------
+    # ------------------------------------------------------------------------------------
     # This method allows users to retrieve all sub-accounts for a given Account.
     #
     # RETurn
@@ -135,15 +139,21 @@ class Account(object):
     #        Type               Name                         Description
     # --------------------  ------------  ------------------------------------------------
     # string                account_id    The ID for a given Unbounce Account.
+    #
     # **kwargs (string)     sort_order    Sort by creation date ('asc' or 'desc').
     #                                     Default: 'asc'
+    #
     # **kwargs (boolean)    count         When true, don't return the response's collection
     #                                     attribute (ex: 'True').
+    #
     # **kwargs (string)     _from         Limit results to those created after _from
     #                                     (ex: '2014-12-31T00:00:00.000Z').
+    #
     # **kwargs (string)     to            Limit results to those created before to
     #                                     (ex: '2014-12-31T23:59:59.999Z').
+    #
     # **kwargs (integer)    offset        Omit the first offset number of results (ex: 3).
+    #
     # **kwargs (integer)    limit         Only return limit number of results (ex: 100).
     #                                     Default: 50
     #                                     Maximum: 1000
@@ -187,7 +197,7 @@ class Account(object):
     # Method: get_account_pages(self, string, **kwargs)
     #
     # Description
-    # -----------
+    # ------------------------------------------------------------------------------------
     # This method allows users to retrieve a list of all Pages for the specified Account.
     #
     # RETurn
@@ -199,15 +209,21 @@ class Account(object):
     #        Type               Name                         Description
     # --------------------  ------------  ------------------------------------------------
     # string                account_id    The ID for a given Unbounce Account.
+    #
     # **kwargs (string)     sort_order    Sort by creation date ('asc' or 'desc').
     #                                     Default: 'asc'
+    #
     # **kwargs (boolean)    count         When true, don't return the response's collection
     #                                     attribute (ex: 'True').
+    #
     # **kwargs (string)     _from         Limit results to those created after _from
     #                                     (ex: '2014-12-31T00:00:00.000Z').
+    #
     # **kwargs (string)     to            Limit results to those created before to
     #                                     (ex: '2014-12-31T23:59:59.999Z').
+    #
     # **kwargs (integer)    offset        Omit the first offset number of results (ex: 3).
+    #
     # **kwargs (integer)    limit         Only return limit number of results (ex: 100).
     #                                     Default: 50
     #                                     Maximum: 1000
