@@ -5,7 +5,7 @@ A [Unbounce API](https://developer.unbounce.com/api_reference/) wrapper written 
 ## Getting Started
 Find more information on authorization, managing API keys, using OAuth, permissions, rate limits, errors, and
 more on [Unbounce's API webpage](https://developer.unbounce.com/getting_started/). Find the project on
-The Python Package Index website here: [unbounce-python-api] (https://pypi.org/project/unbounce-python-api/).
+The Python Package Index website here: [unbounce-python-api](https://pypi.org/project/unbounce-python-api/).
 
 To get started run `pip install unbounce-python-api`
 
