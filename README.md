@@ -1,14 +1,15 @@
 # Unbounce API
 A [Unbounce API](https://developer.unbounce.com/api_reference/) wrapper written in Python.
 
-
 ## Getting Started
-Find more information on authorization, managing API keys, using OAuth, permissions, rate limits, errors, and
-more on [Unbounce's API webpage](https://developer.unbounce.com/getting_started/). Find the project on
-The Python Package Index website here: [unbounce-python-api](https://pypi.org/project/unbounce-python-api/).
+Find more information on authorization, managing API keys, using OAuth, permissions, rate limits, errors, and more on the [Unbounce API webpage](https://developer.unbounce.com/getting_started/). Find the project on the Python Package Index website here: [unbounce-python-api](https://pypi.org/project/unbounce-python-api/).
 
-To get started run `pip install unbounce-python-api`
+To get started, install the package:
+```console
+user@machine:~/$ pip install unbounce-python-api
+```
 
+Then, import it into your project:
 ```python
 from unbounceapi.client import Unbounce
 ub = Unbounce('YOUR_API_KEY')
@@ -175,9 +176,9 @@ Read the docs here: [Users API](https://developer.unbounce.com/api_reference/#id
     - user_id (optional)
 
 
-## Contributors
-* Yoshio Hasegawa
+## Contact
+For support, feedback or, to report a bug, you may contact the maintainer:
+- Yoshio Hasegawa: [GitHub](https://github.com/yoshiohasegawa), [LinkedIn](https://www.linkedin.com/in/yoshiohasegawa/)
 
-
-## Support / Feedback / Bugs
-For support, feedback or, if you've found a bug you may contact the primary contributor here: [Yoshio Hasegawa](mailto:yoshio.seisuke.hasegawa@gmail.com).
+### License
+Distributed under the MIT License.
