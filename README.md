@@ -1,5 +1,5 @@
 # Unbounce API
-A [Unbounce API](https://developer.unbounce.com/api_reference/) wrapper written in Python.
+An [Unbounce API](https://developer.unbounce.com/api_reference/) wrapper written in Python.
 
 ## Getting Started
 Find more information on authorization, managing API keys, using OAuth, permissions, rate limits, errors, and more on the [Unbounce API webpage](https://developer.unbounce.com/getting_started/). Find the project on the Python Package Index website here: [unbounce-python-api](https://pypi.org/project/unbounce-python-api/).
