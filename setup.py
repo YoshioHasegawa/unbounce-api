@@ -13,7 +13,7 @@ setup(
   long_description = long_description,
   long_description_content_type = 'text/markdown',
   author = 'Yoshio Hasegawa',
-  author_email = 'yoshio.seisuke.hasegawa.com',
+  author_email = 'yoshio.seisuke.hasegawa@gmail.com',
   url = 'https://github.com/yoshiohasegawa/unbounce-python-api',
   download_url = 'https://github.com/yoshiohasegawa/unbounce-python-api/archive/v1.3.2.tar.gz',
   keywords = ['Unbounce', 'API', 'Wrapper'],
