@@ -7,7 +7,7 @@ with open("README.md", "r") as f:
 setup(
   name = 'unbounce-python-api',
   packages = ['unbounceapi'],
-  version = '1.3.2',
+  version = '1.3.3',
   license='MIT',
   description = 'An Unbounce API wrapper written in python.',
   long_description = long_description,
