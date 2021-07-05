@@ -1,4 +1,5 @@
 unbounceapi/__pycache__
 *.pyc
+dist/
 unbounce_python_api.egg-info/
 .DS_Store
