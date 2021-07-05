@@ -7,7 +7,7 @@ with open("README.md", "r") as f:
 setup(
   name = 'unbounce-python-api',
   packages = ['unbounceapi'],
-  version = '1.3.3',
+  version = '1.3.4',
   license='MIT',
   description = 'An Unbounce API wrapper written in python.',
   long_description = long_description,
@@ -15,7 +15,7 @@ setup(
   author = 'Yoshio Hasegawa',
   author_email = 'yoshio.seisuke.hasegawa@gmail.com',
   url = 'https://github.com/yoshiohasegawa/unbounce-python-api',
-  download_url = 'https://github.com/yoshiohasegawa/unbounce-python-api/archive/v1.3.3.tar.gz',
+  download_url = 'https://github.com/yoshiohasegawa/unbounce-python-api/archive/v1.3.4.tar.gz',
   keywords = ['Unbounce', 'API', 'Wrapper'],
   install_requires=[
           'requests',
