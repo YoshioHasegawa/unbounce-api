@@ -15,7 +15,7 @@ setup(
   author = 'Yoshio Hasegawa',
   author_email = 'yoshio.seisuke.hasegawa@gmail.com',
   url = 'https://github.com/yoshiohasegawa/unbounce-python-api',
-  download_url = 'https://github.com/yoshiohasegawa/unbounce-python-api/archive/v1.3.2.tar.gz',
+  download_url = 'https://github.com/yoshiohasegawa/unbounce-python-api/archive/v1.3.3.tar.gz',
   keywords = ['Unbounce', 'API', 'Wrapper'],
   install_requires=[
           'requests',
